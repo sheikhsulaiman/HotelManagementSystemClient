@@ -8,7 +8,7 @@ public class Media {
         client = new Client(send);
     }
 
-    public static String getReceivedData(){
+    public String getReceivedData(){
         return client.getReceivedString();
     }
 }

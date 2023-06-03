@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import org.kordamp.ikonli.javafx.*?>
+
+<AnchorPane prefHeight="711.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hotel.hotelclient.controllers.DashboardController">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" text="bigMind Hotel" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="7.0">
+         <font>
+            <Font name="French Script MT" size="41.0" />
+         </font>
+      </Label>
+      <HBox alignment="CENTER_RIGHT" layoutY="4.0" prefHeight="61.0" prefWidth="1010.0" style="-fx-border-color: green;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox alignment="CENTER" style="-fx-border-color: red; -fx-border-radius: 5px;">
+               <children>
+                  <FontIcon iconLiteral="fltfmz-person-available-24" iconSize="40" />
+                  <Button fx:id="btn_profile" alignment="CENTER" mnemonicParsing="false" style="-fx-background-color: transparent;" text="4001">
+                     <font>
+                        <Font name="Calibri" size="22.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="15.0" right="15.0" top="15.0" />
+         </padding>
+      </HBox>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="15.0" layoutY="104.0" text="All Bookings" AnchorPane.leftAnchor="15.0">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="18.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tv_bookings" layoutX="14.0" layoutY="137.0" prefHeight="495.0" prefWidth="983.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
+         <columns>
+            <TableColumn fx:id="tc_bookingId" prefWidth="105.0" text="Booking Id" />
+            <TableColumn fx:id="tc_btRoomNumber" prefWidth="107.0" text="Room No." />
+            <TableColumn fx:id="tc_btRoomType" prefWidth="85.0" text="Room Type" />
+            <TableColumn fx:id="tc_checkIn" prefWidth="101.0" text="Arrive" />
+            <TableColumn fx:id="tc_checkOut" prefWidth="93.0" text="Leave" />
+            <TableColumn fx:id="tc_payType" prefWidth="106.0" text="Pay Type" />
+            <TableColumn fx:id="tc_payStatus" minWidth="0.0" prefWidth="108.0" text="Pay Status" />
+            <TableColumn fx:id="tc_roomService" prefWidth="102.0" text="Room Service" />
+            <TableColumn fx:id="tc_carParking" prefWidth="89.0" text="Car Parking" />
+            <TableColumn fx:id="tc_poolAccess" prefWidth="85.0" text="Pool Access" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

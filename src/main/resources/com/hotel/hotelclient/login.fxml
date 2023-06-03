@@ -7,31 +7,12 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
 <AnchorPane prefHeight="339.0" prefWidth="315.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hotel.hotelclient.controllers.LogInController">
    <children>
-      <Label layoutX="58.0" layoutY="110.0" text="User Id">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <TextField fx:id="tf_userId" layoutX="59.0" layoutY="135.0">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </TextField>
-      <Label layoutX="58.0" layoutY="181.0" text="Password">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <PasswordField fx:id="tf_password" layoutX="59.0" layoutY="205.0">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </PasswordField>
       <HBox alignment="CENTER" layoutX="58.0" layoutY="293.0" prefHeight="35.0" prefWidth="315.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" text="Do not have account" />
@@ -42,11 +23,48 @@
             </Button>
          </children>
       </HBox>
-      <Button fx:id="btn_logIn" layoutX="59.0" layoutY="255.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="198.0" style="-fx-background-color: #00BCA1;" text="Log In" textFill="WHITE">
-         <font>
-            <Font name="Calibri Bold" size="16.0" />
-         </font>
-      </Button>
-      <FontIcon fill="#00bca1" iconLiteral="fltfmz-person-24" iconSize="60" layoutX="128.0" layoutY="88.0" />
+      <HBox alignment="CENTER" layoutX="65.0" layoutY="8.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <FontIcon fill="#00bca1" iconLiteral="fltfmz-person-24" iconSize="60" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="58.0" layoutY="101.0" prefHeight="67.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <VBox alignment="CENTER_LEFT" spacing="2.0">
+               <children>
+                  <Label text="User Id">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="tf_userId">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+                  <Label text="Password">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <PasswordField fx:id="tf_password">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </PasswordField>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutY="260.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Button fx:id="btn_logIn" mnemonicParsing="false" prefHeight="25.0" prefWidth="198.0" style="-fx-background-color: #00BCA1;" text="Log In" textFill="WHITE">
+               <font>
+                  <Font name="Calibri Bold" size="16.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+      <Label fx:id="l_errorMessage" alignment="CENTER" contentDisplay="CENTER" layoutX="144.0" layoutY="236.0" textFill="#ff0f0f" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
    </children>
 </AnchorPane>

@@ -2,15 +2,13 @@ package com.hotel.hotelclient.controllers;
 
 import com.hotel.hotelclient.communication.Request;
 import com.hotel.hotelclient.communication.Media;
+import com.hotel.hotelclient.utils.Log;
 import com.hotel.hotelclient.utils.SceneSwitcher;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -28,6 +26,9 @@ public class LogInController implements Initializable {
     @FXML
     private TextField tf_userId;
 
+    @FXML
+    private Label l_errorMessage;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         btn_signUp.setOnAction(new EventHandler<ActionEvent>() {
@@ -40,16 +41,13 @@ public class LogInController implements Initializable {
         btn_logIn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                Media sender = new Media( Request.logIn(tf_userId.getText(),tf_password.getText()));
+                Media log = new Media( Request.logIn(tf_userId.getText(),tf_password.getText()));
 
-                    if (Media.getReceivedData().equals("true")) {
-                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                        alert.setContentText("Success " + Media.getReceivedData());
-                        alert.show();
+                    if (log.getReceivedData().equals("true")) {
+                        Log.userId=Integer.parseInt(tf_userId.getText());
+                        SceneSwitcher.changeScene(event,"../dashboard.fxml","Dashboard");
                     } else {
-                        Alert alert = new Alert(Alert.AlertType.ERROR);
-                        alert.setContentText("Error " + Media.getReceivedData());
-                        alert.show();
+                        l_errorMessage.setText("Wrong Credential");
                     }
                 }
         });

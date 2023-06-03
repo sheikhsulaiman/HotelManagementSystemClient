@@ -5,31 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d927113b-adff-4294-bd78-8edc7cc963e8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/communication/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/communication/Request.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/controllers/AppController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/controllers/LogInController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/controllers/SignUpController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/utils/SceneSwitcher.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/utils/Status.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/hotel/hotelclient/app.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/hotel/hotelclient/double-bed.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/hotel/hotelclient/hotel-home.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/hotel/hotelclient/login.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/hotel/hotelclient/multi-bed.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/hotel/hotelclient/signup.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/hotel/hotelclient/single-bed.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/hotel/hotelclient/single_room.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/controllers/DashboardController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/database/DButils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/database/DataBase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/database/DataBaseConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/hotel/hotelclient/dashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/communication/Media.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/communication/Media.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/communication/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/communication/Request.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/controllers/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/controllers/AppController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/controllers/LogInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/controllers/LogInController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/utils/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/utils/Log.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/hotel/hotelclient/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/hotel/hotelclient/login.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,9 +57,10 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Project/HotelClient/src/main/resources/com/hotel/hotelclient&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Project/HotelClient/src/main/java/com/hotel/hotelclient/database&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -80,6 +72,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Project\HotelClient\src\main\java\com\hotel\hotelclient\database" />
+      <recent name="D:\Project\HotelClient\src\main\java\com\hotel\hotelclient" />
       <recent name="D:\Project\HotelClient\src\main\resources\com\hotel\hotelclient" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -124,8 +118,32 @@
       <workItem from="1685699564169" duration="2839000" />
       <workItem from="1685709215983" duration="232000" />
       <workItem from="1685709515030" duration="4754000" />
-      <workItem from="1685750074201" duration="4736000" />
+      <workItem from="1685750074201" duration="6043000" />
+      <workItem from="1685758051654" duration="7864000" />
+      <workItem from="1685783195905" duration="3857000" />
     </task>
+    <task id="LOCAL-00001" summary="first commit">
+      <created>1685754843032</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1685754843032</updated>
+    </task>
+    <task id="LOCAL-00002" summary="create Media.java">
+      <created>1685754966016</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1685754966016</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add Login status checker">
+      <created>1685755180064</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1685755180064</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,5 +159,11 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="first commit" />
+    <MESSAGE value="create Media.java" />
+    <MESSAGE value="add Login status checker" />
+    <option name="LAST_COMMIT_MESSAGE" value="add Login status checker" />
   </component>
 </project>

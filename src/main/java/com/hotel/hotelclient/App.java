@@ -1,10 +1,14 @@
 package com.hotel.hotelclient;
 
 import com.hotel.hotelclient.communication.Client;
+import com.hotel.hotelclient.database.DButils;
 import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 
@@ -16,6 +20,15 @@ public class App extends Application {
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
+
+        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent windowEvent) {
+                DButils.clearAll();
+                Platform.exit();
+                System.exit(0);
+            }
+        });
     }
 
     public static void main(String[] args) {

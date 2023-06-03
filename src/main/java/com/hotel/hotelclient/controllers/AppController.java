@@ -37,7 +37,7 @@ public class AppController implements Initializable {
         btn_logIn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                SceneSwitcher.changeSceneToNewWindow("../login.fxml","Log In");
+                SceneSwitcher.changeScene(event,"../login.fxml","Log In");
             }
         });
 
