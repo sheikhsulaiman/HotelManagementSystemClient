@@ -8,4 +8,7 @@ public class Request {
     public static String fetchBookings(String userId){
         return ("getBookingsOf"+","+userId);
     }
+    public static String fetchRooms(){
+        return ("getRooms");
+    }
 }

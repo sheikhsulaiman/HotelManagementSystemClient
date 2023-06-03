@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
 import java.net.URL;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 
 public class LogInController implements Initializable {
@@ -42,9 +43,17 @@ public class LogInController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 Media log = new Media( Request.logIn(tf_userId.getText(),tf_password.getText()));
-
-                    if (log.getReceivedData().equals("true")) {
-                        Log.userId=Integer.parseInt(tf_userId.getText());
+                    String data = log.getReceivedData();
+                    String[] list = data.split(",");
+                //System.out.println(Arrays.toString(list));
+                    if (list[0].equals(tf_userId.getText())) {
+                        Log.setUserId(Integer.parseInt(list[0]));
+                        Log.setFirstname(list[1]);
+                        Log.setLastname(list[2]);
+                        Log.setPhone(Integer.parseInt(list[3]));
+                        Log.setGender(list[4]);
+                        Log.setEmail(list[5]);
+                        Log.setAddress(list[6]);
                         SceneSwitcher.changeScene(event,"../dashboard.fxml","Dashboard");
                     } else {
                         l_errorMessage.setText("Wrong Credential");

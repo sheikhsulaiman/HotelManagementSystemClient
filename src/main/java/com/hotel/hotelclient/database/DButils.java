@@ -56,4 +56,22 @@ public class DButils {
             throw new RuntimeException(e);
         }
     }
+
+    public static void updateRoomsTable(String[] list ){
+        DataBaseConnection dbConnection = new DataBaseConnection();
+        Connection connectDB = dbConnection.getDatabaseLink();
+        try {
+            PreparedStatement updateRoomsStatement = connectDB.prepareStatement("INSERT INTO rooms(number,type) VALUES (?,?)");
+
+            updateRoomsStatement.setInt(1,Integer.parseInt(list[0]));
+            updateRoomsStatement.setString(2,list[1]);
+
+            updateRoomsStatement.executeUpdate();
+            connectDB.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            //System.out.println("SQL Exception");
+        }
+    }
 }
