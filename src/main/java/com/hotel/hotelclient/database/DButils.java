@@ -1,9 +1,10 @@
 package com.hotel.hotelclient.database;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
+import com.hotel.hotelclient.utils.tables.Bookings;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
+import java.sql.*;
 import java.util.Arrays;
 
 public class DButils {
@@ -73,5 +74,63 @@ public class DButils {
             e.printStackTrace();
             //System.out.println("SQL Exception");
         }
+    }
+
+    public static String getRoomType(String roomNo){
+        DataBaseConnection dbConnection = new DataBaseConnection();
+        Connection connectDB = dbConnection.getDatabaseLink();
+
+        String roomType="";
+
+        try{
+            PreparedStatement getRoomTypeStm = connectDB.prepareStatement( "SELECT type FROM rooms WHERE number=?");
+            getRoomTypeStm.setInt(1,Integer.parseInt(roomNo));
+            ResultSet resultSet = getRoomTypeStm.executeQuery();
+            while (resultSet.next()){
+                roomType = (resultSet.getString("type"));
+            }
+            connectDB.close();
+        } catch (SQLException e) {
+            System.out.println("SQL Exception");
+        }
+        return roomType;
+    }
+
+    public static ObservableList<Bookings> getBookingTable() {
+        DataBaseConnection connectNow = new DataBaseConnection();
+        Connection connectDB = connectNow.getDatabaseLink();
+
+        String userDetailsViewQuery = "SELECT * FROM bookings";
+        ObservableList<Bookings> searchModelObservableList = FXCollections.observableArrayList();
+
+        try {
+            Statement statement = connectDB.createStatement();
+            ResultSet queryOutput = statement.executeQuery(userDetailsViewQuery);
+            while (queryOutput.next()) {
+                Integer queryBookingId = queryOutput.getInt("bookingid");
+                Integer queryRoomNo = queryOutput.getInt("roomno");
+                //Integer queryUserid = queryOutput.getInt("userid");
+                String queryCheckIn = queryOutput.getString("checkin");
+                String queryCheckOut = queryOutput.getString("checkout");
+                String queryPayMethod = queryOutput.getString("paymentmethod");
+                String queryPayStatus = queryOutput.getString("paymentstatus");
+                String queryRoomService = queryOutput.getString("roomservice");
+                String queryPoolAccess = queryOutput.getString("poolaccess");
+                String queryCarParking = queryOutput.getString("carparking");
+                String roomType = DButils.getRoomType(Integer.toString(queryRoomNo));
+
+                searchModelObservableList.add(new Bookings(queryBookingId,queryRoomNo,roomType,queryCheckIn,queryCheckOut,queryPayMethod,queryPayStatus,queryRoomService,queryCarParking,queryPoolAccess));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }finally {
+            try {
+                connectDB.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return searchModelObservableList;
+
     }
 }

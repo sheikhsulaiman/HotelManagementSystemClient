@@ -30,6 +30,9 @@ public class LogInController implements Initializable {
     @FXML
     private Label l_errorMessage;
 
+    @FXML
+    private Button btn_back;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         btn_signUp.setOnAction(new EventHandler<ActionEvent>() {
@@ -38,6 +41,8 @@ public class LogInController implements Initializable {
                 SceneSwitcher.changeScene(event,"../signup.fxml","Sign Up");
             }
         });
+
+        btn_back.setOnAction(event -> SceneSwitcher.changeScene(event,"../app.fxml","big Mind Hotel"));
 
         btn_logIn.setOnAction(new EventHandler<ActionEvent>() {
             @Override

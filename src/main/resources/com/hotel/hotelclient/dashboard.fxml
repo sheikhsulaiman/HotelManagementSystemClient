@@ -6,24 +6,30 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DisplacementMap?>
+<?import javafx.scene.effect.FloatMap?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
 <AnchorPane prefHeight="711.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hotel.hotelclient.controllers.DashboardController">
    <children>
-      <Label alignment="CENTER" contentDisplay="CENTER" text="bigMind Hotel" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="7.0">
+      <Label alignment="CENTER" contentDisplay="CENTER" text="bigMind Hotel" textFill="#00bca1" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="7.0">
          <font>
             <Font name="French Script MT" size="41.0" />
          </font>
       </Label>
-      <HBox alignment="CENTER_RIGHT" layoutY="4.0" prefHeight="61.0" prefWidth="1010.0" style="-fx-border-color: green;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <HBox alignment="CENTER_RIGHT" layoutY="4.0" prefHeight="61.0" prefWidth="1010.0" style="-fx-border-color: #00BCA1;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <HBox alignment="CENTER" style="-fx-border-color: red; -fx-border-radius: 5px;">
                <children>
-                  <FontIcon iconLiteral="fltfmz-person-available-24" iconSize="40" />
-                  <Button fx:id="btn_profile" alignment="CENTER" mnemonicParsing="false" style="-fx-background-color: transparent;" text="4001">
+                  <FontIcon iconColor="#00bca1" iconLiteral="fltfmz-person-available-24" iconSize="40" />
+                  <Button fx:id="btn_profile" alignment="CENTER" mnemonicParsing="false" style="-fx-background-color: transparent;" textFill="#00bca1">
                      <font>
                         <Font name="Calibri" size="22.0" />
                      </font>
@@ -38,12 +44,12 @@
             <Insets bottom="15.0" right="15.0" top="15.0" />
          </padding>
       </HBox>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="15.0" layoutY="168.0" text="All Bookings" AnchorPane.leftAnchor="15.0">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="15.0" layoutY="143.0" text="All Bookings" AnchorPane.leftAnchor="15.0">
          <font>
             <Font name="Arial Rounded MT Bold" size="18.0" />
          </font>
       </Label>
-      <TableView fx:id="tv_bookings" layoutX="14.0" layoutY="202.0" prefHeight="495.0" prefWidth="983.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
+      <TableView fx:id="tv_bookings" layoutX="14.0" layoutY="170.0" prefHeight="235.0" prefWidth="982.0" style="-fx-background-radius: 7px;" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
          <columns>
             <TableColumn fx:id="tc_bookingId" prefWidth="105.0" text="Booking Id" />
             <TableColumn fx:id="tc_btRoomNumber" prefWidth="107.0" text="Room No." />
@@ -54,10 +60,10 @@
             <TableColumn fx:id="tc_payStatus" minWidth="0.0" prefWidth="108.0" text="Pay Status" />
             <TableColumn fx:id="tc_roomService" prefWidth="102.0" text="Room Service" />
             <TableColumn fx:id="tc_carParking" prefWidth="89.0" text="Car Parking" />
-            <TableColumn fx:id="tc_poolAccess" prefWidth="85.0" text="Pool Access" />
+            <TableColumn fx:id="tc_poolAccess" prefWidth="82.0" text="Pool Access" />
          </columns>
       </TableView>
-      <Label fx:id="l_welcome" alignment="CENTER" contentDisplay="CENTER" layoutX="491.0" layoutY="85.0" style="-fx-background-color: #228b22;" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <Label fx:id="l_welcome" alignment="CENTER" contentDisplay="CENTER" layoutY="78.0" prefHeight="32.0" prefWidth="1010.0" style="-fx-background-color: #00BCA1;" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <font>
             <Font name="Berlin Sans FB" size="36.0" />
          </font>
@@ -65,5 +71,201 @@
             <Insets bottom="5.0" top="5.0" />
          </padding>
       </Label>
+      <TextField fx:id="tf_search" alignment="CENTER" layoutX="224.0" layoutY="140.0" prefHeight="25.0" prefWidth="518.0" AnchorPane.leftAnchor="224.0" AnchorPane.rightAnchor="268.0" />
+      <FontIcon iconColor="#a8a8a8" iconLiteral="fltfmz-search-24" iconSize="16" layoutX="232.0" layoutY="161.0" text="" AnchorPane.leftAnchor="232.0" AnchorPane.rightAnchor="762.0" />
+      <Button fx:id="btn_reload" layoutX="956.0" layoutY="137.0" mnemonicParsing="false" style="-fx-background-color: transparent;" AnchorPane.rightAnchor="14.0">
+         <graphic>
+            <FontIcon iconColor="#00bca1" iconLiteral="fltfal-arrow-sync-24" iconSize="24" />
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btn_newbooking" layoutX="855.0" layoutY="139.0" mnemonicParsing="false" style="-fx-background-color: #00BCA1;" text="New Booking" textFill="WHITE" AnchorPane.rightAnchor="54.0">
+         <font>
+            <Font name="Arial Bold" size="13.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <HBox alignment="CENTER" layoutX="14.0" layoutY="416.0" prefHeight="283.0" prefWidth="982.0" spacing="55.0" style="-fx-border-color: #00BCA1; -fx-border-radius: 7px;">
+         <children>
+            <VBox alignment="CENTER_LEFT" prefHeight="263.0" prefWidth="214.0" style="-fx-border-color: #00BCA1; -fx-background-radius: 3px; -fx-border-radius: 3px;">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="263.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@single_room.jpg" />
+                     </image>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </ImageView>
+                  <Label nodeOrientation="LEFT_TO_RIGHT" text="Single Bed" textFill="#00bca1">
+                     <font>
+                        <Font name="Corbel Bold" size="27.0" />
+                     </font>
+                     <effect>
+                        <DisplacementMap>
+                           <mapData>
+                              <FloatMap />
+                           </mapData>
+                        </DisplacementMap>
+                     </effect>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Label>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label nodeOrientation="LEFT_TO_RIGHT" prefHeight="72.0" prefWidth="96.0" text="\$  25/night" textFill="#00bca1">
+                           <font>
+                              <Font name="Corbel" size="18.0" />
+                           </font>
+                           <effect>
+                              <DisplacementMap>
+                                 <mapData>
+                                    <FloatMap />
+                                 </mapData>
+                              </DisplacementMap>
+                           </effect>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </Label>
+                        <Button fx:id="btn_bookSingle" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" style="-fx-background-color: #00BCA1; -fx-border-radius: 10px; -fx-cursor: hand;" text="Book Now" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Bold" size="22.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER_LEFT" layoutX="40.0" layoutY="20.0" prefHeight="263.0" prefWidth="214.0" style="-fx-border-color: #00BCA1; -fx-background-radius: 3px; -fx-border-radius: 3px;">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="263.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@double-bed.jpg" />
+                     </image>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </ImageView>
+                  <Label nodeOrientation="LEFT_TO_RIGHT" text="Double Bed" textFill="#00bca1">
+                     <font>
+                        <Font name="Corbel Bold" size="27.0" />
+                     </font>
+                     <effect>
+                        <DisplacementMap>
+                           <mapData>
+                              <FloatMap />
+                           </mapData>
+                        </DisplacementMap>
+                     </effect>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Label>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label nodeOrientation="LEFT_TO_RIGHT" prefHeight="72.0" prefWidth="96.0" text="\$  40/night" textFill="#00bca1">
+                           <font>
+                              <Font name="Corbel" size="18.0" />
+                           </font>
+                           <effect>
+                              <DisplacementMap>
+                                 <mapData>
+                                    <FloatMap />
+                                 </mapData>
+                              </DisplacementMap>
+                           </effect>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </Label>
+                        <Button fx:id="btn_bookDouble" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" style="-fx-background-color: #00BCA1; -fx-border-radius: 10px; -fx-cursor: hand;" text="Book Now" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Bold" size="22.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </VBox>
+            <VBox alignment="CENTER_LEFT" layoutX="40.0" layoutY="20.0" prefHeight="263.0" prefWidth="214.0" style="-fx-border-color: #00BCA1; -fx-background-radius: 3px; -fx-border-radius: 3px;">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="263.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@multi-bed.jpg" />
+                     </image>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </ImageView>
+                  <Label nodeOrientation="LEFT_TO_RIGHT" text="Multi Bed" textFill="#00bca1">
+                     <font>
+                        <Font name="Corbel Bold" size="27.0" />
+                     </font>
+                     <effect>
+                        <DisplacementMap>
+                           <mapData>
+                              <FloatMap />
+                           </mapData>
+                        </DisplacementMap>
+                     </effect>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Label>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label nodeOrientation="LEFT_TO_RIGHT" prefHeight="72.0" prefWidth="96.0" text="\$  59/night" textFill="#00bca1">
+                           <font>
+                              <Font name="Corbel" size="18.0" />
+                           </font>
+                           <effect>
+                              <DisplacementMap>
+                                 <mapData>
+                                    <FloatMap />
+                                 </mapData>
+                              </DisplacementMap>
+                           </effect>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </Label>
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" style="-fx-background-color: #00BCA1; -fx-border-radius: 10px; -fx-cursor: hand;" text="Book Now" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Bold" size="22.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </HBox>
    </children>
 </AnchorPane>

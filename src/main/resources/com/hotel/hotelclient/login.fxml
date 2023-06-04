@@ -11,9 +11,9 @@
 <?import javafx.scene.text.Font?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<AnchorPane prefHeight="339.0" prefWidth="315.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hotel.hotelclient.controllers.LogInController">
+<AnchorPane prefHeight="711.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hotel.hotelclient.controllers.LogInController">
    <children>
-      <HBox alignment="CENTER" layoutX="58.0" layoutY="293.0" prefHeight="35.0" prefWidth="315.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <HBox alignment="CENTER" layoutY="481.0" prefHeight="35.0" prefWidth="315.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" text="Do not have account" />
             <Button fx:id="btn_signUp" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Sign Up" textFill="#0071f2" underline="true">
@@ -23,12 +23,12 @@
             </Button>
          </children>
       </HBox>
-      <HBox alignment="CENTER" layoutX="65.0" layoutY="8.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <HBox alignment="CENTER" layoutY="196.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <FontIcon fill="#00bca1" iconLiteral="fltfmz-person-24" iconSize="60" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" layoutX="58.0" layoutY="101.0" prefHeight="67.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <HBox alignment="CENTER" layoutY="289.0" prefHeight="67.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <VBox alignment="CENTER_LEFT" spacing="2.0">
                <children>
@@ -56,7 +56,7 @@
             </VBox>
          </children>
       </HBox>
-      <HBox alignment="CENTER" layoutY="260.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <HBox alignment="CENTER" layoutY="448.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <Button fx:id="btn_logIn" mnemonicParsing="false" prefHeight="25.0" prefWidth="198.0" style="-fx-background-color: #00BCA1;" text="Log In" textFill="WHITE">
                <font>
@@ -65,6 +65,14 @@
             </Button>
          </children>
       </HBox>
-      <Label fx:id="l_errorMessage" alignment="CENTER" contentDisplay="CENTER" layoutX="144.0" layoutY="236.0" textFill="#ff0f0f" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <Label fx:id="l_errorMessage" alignment="CENTER" contentDisplay="CENTER" layoutY="424.0" textFill="#ff0f0f" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <Button fx:id="btn_back" layoutX="24.0" layoutY="24.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+         <graphic>
+            <FontIcon iconColor="#00bca1" iconLiteral="fltfal-home-28" iconSize="30" text="" />
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </AnchorPane>
