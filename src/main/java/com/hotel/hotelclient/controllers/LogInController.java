@@ -2,6 +2,7 @@ package com.hotel.hotelclient.controllers;
 
 import com.hotel.hotelclient.communication.Request;
 import com.hotel.hotelclient.communication.Media;
+import com.hotel.hotelclient.database.DButils;
 import com.hotel.hotelclient.utils.Log;
 import com.hotel.hotelclient.utils.SceneSwitcher;
 import javafx.event.ActionEvent;
@@ -11,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.ResourceBundle;
 
@@ -48,8 +50,8 @@ public class LogInController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 Media log = new Media( Request.logIn(tf_userId.getText(),tf_password.getText()));
-                    String data = log.getReceivedData();
-                    String[] list = data.split(",");
+                    String rawLogData = log.getReceivedData();
+                    String[] list = rawLogData.split(",");
                 //System.out.println(Arrays.toString(list));
                     if (list[0].equals(tf_userId.getText())) {
                         Log.setUserId(Integer.parseInt(list[0]));
@@ -60,6 +62,49 @@ public class LogInController implements Initializable {
                         Log.setEmail(list[5]);
                         Log.setAddress(list[6]);
                         SceneSwitcher.changeScene(event,"../dashboard.fxml","Dashboard");
+
+                        Media bookings = new Media(Request.fetchBookings(Integer.toString(Log.userId)));
+                        String rawBookingData = (bookings.getReceivedData());
+                        if(!(rawBookingData.isBlank()||rawBookingData.isEmpty())) {
+                            String[] listBooking = rawBookingData.split(":");
+                            //System.out.println(Arrays.toString(listBooking));
+                            for (String data : listBooking) {
+                                //System.out.println(Arrays.toString(data.split(",")));
+                                try {
+                                    DButils.updateBookingTable(data.split(","));
+                                } catch (SQLException e) {
+                                    throw new RuntimeException(e);
+                                }
+                            }
+                        }
+                        Media calendar = new Media(Request.fetchCalendar());
+                        String rawCalendarData = (calendar.getReceivedData());
+                        if(!(rawCalendarData.isBlank()||rawCalendarData.isEmpty())) {
+                            String[] listCalendar = rawCalendarData.split(":");
+                            //System.out.println(Arrays.toString(listBooking));
+                            for (String data : listCalendar) {
+                                //System.out.println(Arrays.toString(data.split(",")));
+                                try {
+                                    DButils.updateCalendarTable(data.split(","));
+                                } catch (SQLException e) {
+                                    throw new RuntimeException(e);
+                                }
+                            }
+                        }
+                        Media rooms = new Media(Request.fetchRooms());
+                        String rawRoomsData = rooms.getReceivedData();
+                        if(!(rawRoomsData.isEmpty()||rawRoomsData.isBlank())) {
+                            String[] listRoom = rawRoomsData.split(":");
+                            //System.out.println(Arrays.toString(listRoom));
+                            for (String data : listRoom) {
+                                //System.out.println(Arrays.toString(data.split(",")));
+                                try {
+                                    DButils.updateRoomsTable(data.split(","));
+                                } catch (SQLException e) {
+                                    throw new RuntimeException(e);
+                                }
+                            }
+                        }
                     } else {
                         l_errorMessage.setText("Wrong Credential");
                     }

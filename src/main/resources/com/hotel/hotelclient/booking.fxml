@@ -9,98 +9,127 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<AnchorPane prefHeight="535.0" prefWidth="371.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hotel.hotelclient.controllers.BookingController">
+<AnchorPane prefHeight="711.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hotel.hotelclient.controllers.BookingController">
    <children>
-      <ChoiceBox fx:id="cb_roomType" layoutX="170.0" layoutY="168.0" prefWidth="150.0" />
-      <Label layoutX="38.0" layoutY="166.0" text="Room Type">
+      <Label layoutX="124.0" layoutY="328.0" text="Room Type">
          <font>
-            <Font size="19.0" />
+            <Font size="25.0" />
          </font>
       </Label>
-      <Label layoutX="38.0" layoutY="46.0" text="User Id">
+      <Label layoutX="123.0" layoutY="158.0" text="User Id">
          <font>
-            <Font size="19.0" />
+            <Font size="25.0" />
          </font>
       </Label>
-      <TextField fx:id="tf_user_id" disable="true" layoutX="171.0" layoutY="48.0" prefHeight="25.0" prefWidth="150.0" />
-      <ChoiceBox fx:id="cb_roomNo" layoutX="170.0" layoutY="207.0" prefWidth="150.0" />
-      <Label layoutX="38.0" layoutY="205.0" text="Room No.">
+      <TextField fx:id="tf_user_id" disable="true" layoutX="311.0" layoutY="157.0" prefHeight="39.0" prefWidth="201.0">
          <font>
-            <Font size="19.0" />
+            <Font size="18.0" />
+         </font></TextField>
+      <DatePicker fx:id="dp_checkIn" layoutX="311.0" layoutY="214.0" prefHeight="39.0" prefWidth="201.0" />
+      <DatePicker fx:id="dp_checkOut" layoutX="311.0" layoutY="272.0" prefHeight="39.0" prefWidth="201.0" />
+      <ChoiceBox fx:id="cb_roomType" layoutX="311.0" layoutY="328.0" prefHeight="36.0" prefWidth="201.0" />
+      <ChoiceBox fx:id="cb_roomNo" layoutX="311.0" layoutY="383.0" prefHeight="39.0" prefWidth="201.0" />
+      <ChoiceBox fx:id="cb_payType" layoutX="311.0" layoutY="441.0" prefHeight="39.0" prefWidth="201.0" />
+      <ChoiceBox fx:id="cb_payStatus" disable="true" layoutX="311.0" layoutY="503.0" prefHeight="39.0" prefWidth="201.0" />
+      <Label layoutX="124.0" layoutY="385.0" text="Room No.">
+         <font>
+            <Font size="25.0" />
          </font>
       </Label>
-      <Label layoutX="38.0" layoutY="87.0" text="Check-in">
+      <Label layoutX="123.0" layoutY="216.0" text="Check-in">
          <font>
-            <Font size="19.0" />
+            <Font size="25.0" />
          </font>
       </Label>
-      <DatePicker fx:id="dp_checkIn" layoutX="170.0" layoutY="89.0" prefHeight="25.0" prefWidth="150.0" />
-      <Label layoutX="38.0" layoutY="127.0" text="Check-out">
+      <Label layoutX="124.0" layoutY="273.0" text="Check-out">
          <font>
-            <Font size="19.0" />
+            <Font size="25.0" />
          </font>
       </Label>
-      <DatePicker fx:id="dp_checkOut" layoutX="170.0" layoutY="129.0" prefHeight="25.0" prefWidth="150.0" />
-      <ChoiceBox fx:id="cb_payType" layoutX="170.0" layoutY="248.0" prefWidth="150.0" />
-      <Label layoutX="38.0" layoutY="246.0" text="Payment Type">
+      <Label layoutX="124.0" layoutY="442.0" text="Payment Type">
          <font>
-            <Font size="19.0" />
+            <Font size="25.0" />
          </font>
       </Label>
-      <Line endX="100.0" layoutX="186.0" layoutY="335.0" startX="-100.0" />
-      <Label layoutX="134.0" layoutY="336.0" text="Additional Facilities" />
-      <Line endX="100.0" layoutX="185.0" layoutY="353.0" startX="-100.0" />
-      <CheckBox fx:id="ckb_roomService" layoutX="41.0" layoutY="362.0" mnemonicParsing="false" text="Room Service">
+      <Line endX="152.0" layoutX="752.0" layoutY="219.0" startX="-100.0" />
+      <Label layoutX="680.0" layoutY="220.0" text="Additional Facilities">
          <font>
-            <Font size="16.0" />
+            <Font size="17.0" />
+         </font></Label>
+      <Line endX="152.0" layoutX="752.0" layoutY="247.0" startX="-100.0" />
+      <CheckBox fx:id="ckb_roomService" layoutX="641.0" layoutY="267.0" mnemonicParsing="false" text="Room Service">
+         <font>
+            <Font size="24.0" />
          </font>
       </CheckBox>
-      <CheckBox fx:id="ckb_poolAccess" layoutX="41.0" layoutY="394.0" mnemonicParsing="false" text="Pool Access">
+      <CheckBox fx:id="ckb_poolAccess" layoutX="641.0" layoutY="316.0" mnemonicParsing="false" text="Pool Access">
          <font>
-            <Font size="16.0" />
+            <Font size="24.0" />
          </font>
       </CheckBox>
-      <CheckBox fx:id="ckb_carParking" layoutX="41.0" layoutY="429.0" mnemonicParsing="false" text="Car Parking">
+      <CheckBox fx:id="ckb_carParking" layoutX="642.0" layoutY="366.0" mnemonicParsing="false" text="Car Parking">
          <font>
-            <Font size="16.0" />
+            <Font size="24.0" />
          </font>
       </CheckBox>
-      <ChoiceBox fx:id="cb_payStatus" disable="true" layoutX="190.0" layoutY="289.0" prefHeight="25.0" prefWidth="130.0" />
-      <Label layoutX="38.0" layoutY="287.0" text="Payment Status">
+      <Label layoutX="124.0" layoutY="504.0" text="Payment Status">
          <font>
-            <Font size="19.0" />
+            <Font size="25.0" />
          </font>
       </Label>
-      <Button fx:id="btn_predictPrice" layoutX="41.0" layoutY="481.0" mnemonicParsing="false" text="Predict Price">
+      <Button fx:id="btn_predictPrice" layoutX="642.0" layoutY="442.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="164.0" style="-fx-background-color: #5f9ea0;" text="Predict Price" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="btn_confirmBooking" layoutX="138.0" layoutY="481.0" mnemonicParsing="false" style="-fx-background-color: #3cb371;" text="Confirm Booking" textFill="WHITE">
+         </cursor>
+         <font>
+            <Font name="Calibri Bold" size="16.0" />
+         </font></Button>
+      <Button fx:id="btn_confirmBooking" layoutX="642.0" layoutY="503.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="187.0" style="-fx-background-color: #3cb371;" text="Confirm Booking" textFill="WHITE">
          <graphic>
             <FontIcon fill="WHITE" iconColor="WHITE" iconLiteral="fltral-checkmark-circle-16" iconSize="16" />
          </graphic>
          <font>
-            <Font name="Arial Bold" size="12.0" />
+            <Font name="Arial Bold" size="16.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Label fx:id="l_predictedPrice" layoutX="219.0" layoutY="366.0" prefHeight="83.0" prefWidth="103.0" text="\$ 0" textFill="#ff7d7d">
+      <Label fx:id="l_predictedPrice" layoutX="829.0" layoutY="434.0" prefHeight="53.0" prefWidth="103.0" text="\$ 0" textFill="#ff7d7d">
          <font>
             <Font size="31.0" />
          </font>
       </Label>
-      <RadioButton fx:id="rBtn_print" layoutX="285.0" layoutY="484.0" mnemonicParsing="false">
+      <RadioButton fx:id="rBtn_print" layoutX="853.0" layoutY="508.0" mnemonicParsing="false">
          <graphic>
-            <FontIcon iconLiteral="fltrmz-print-20" iconSize="20" />
+            <FontIcon iconColor="#00ba03" iconLiteral="fltrmz-print-20" iconSize="30" />
          </graphic>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
+         <font>
+            <Font size="18.0" />
+         </font>
       </RadioButton>
+      <Button fx:id="btn_back" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+         <graphic>
+            <FontIcon iconColor="#00bca1" iconLiteral="fltfal-arrow-left-28" iconSize="30" />
+         </graphic>
+      </Button>
+      <Line endX="-100.0" endY="399.0" layoutX="680.0" layoutY="156.0" startX="-100.0" />
+      <HBox alignment="CENTER" layoutX="412.0" layoutY="33.0" prefHeight="100.0" prefWidth="200.0" spacing="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <FontIcon iconColor="#00bca1" iconLiteral="fltral-calendar-checkmark-16" iconSize="70" />
+            <Label text="New Booking" textFill="#00bca1">
+               <font>
+                  <Font size="44.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

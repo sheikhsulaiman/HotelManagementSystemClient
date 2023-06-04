@@ -30,6 +30,11 @@
          <font>
             <Font size="18.0" />
          </font></TextField>
+      <PasswordField fx:id="pf_password" layoutX="123.0" layoutY="307.0" prefHeight="39.0" prefWidth="338.0" promptText="Create Password" AnchorPane.leftAnchor="125.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </PasswordField>
       <Label layoutX="547.0" layoutY="192.0" text="Gender" textFill="#00bca1" AnchorPane.rightAnchor="395.0">
          <font>
             <Font size="21.0" />
@@ -56,11 +61,6 @@
             <FontIcon iconColor="WHITE" iconLiteral="fltral-checkmark-circle-20" iconSize="24" />
          </graphic>
       </Button>
-      <PasswordField fx:id="pf_password" layoutX="123.0" layoutY="307.0" prefHeight="39.0" prefWidth="338.0" promptText="Create Password" AnchorPane.leftAnchor="125.0">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </PasswordField>
       <HBox alignment="CENTER" layoutX="491.0" layoutY="575.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <Label fx:id="l_errorMessage" textFill="RED" />

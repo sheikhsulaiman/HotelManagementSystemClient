@@ -4,6 +4,7 @@ import com.hotel.hotelclient.communication.Media;
 import com.hotel.hotelclient.communication.Request;
 import com.hotel.hotelclient.database.DButils;
 import com.hotel.hotelclient.utils.Log;
+import com.hotel.hotelclient.utils.SceneSwitcher;
 import com.hotel.hotelclient.utils.Search;
 import com.hotel.hotelclient.utils.tables.Bookings;
 import javafx.collections.ObservableList;
@@ -13,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import javafx.scene.control.*;
@@ -26,6 +28,9 @@ public class DashboardController implements Initializable {
 
     @FXML
     private Label l_welcome;
+
+    @FXML
+    private Button btn_newbooking;
 
     @FXML
     private TextField tf_search;
@@ -67,32 +72,26 @@ public class DashboardController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Media bookings = new Media(Request.fetchBookings(Integer.toString(Log.userId)));
-        String rawBookingData = (bookings.getReceivedData());
-        if(!(rawBookingData.isBlank()||rawBookingData.isEmpty())) {
-            String[] listBooking = rawBookingData.split(":");
-            //System.out.println(Arrays.toString(listBooking));
-            for (String data : listBooking) {
-                //System.out.println(Arrays.toString(data.split(",")));
-                DButils.updateBookingTable(data.split(","));
+
+
+        btn_newbooking.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                SceneSwitcher.changeScene(event,"../booking.fxml","New Booking");
             }
-        }
-        Media rooms = new Media(Request.fetchRooms());
-        String rawRoomsData = rooms.getReceivedData();
-        String[] listRoom = rawRoomsData.split(":");
-        //System.out.println(Arrays.toString(listRoom));
-        for (String data:listRoom) {
-            //System.out.println(Arrays.toString(data.split(",")));
-            DButils.updateRoomsTable(data.split(","));
-        }
+        });
 
         l_welcome.setText("Welcome "+Log.getFirstname()+" "+Log.getLastname());
 
         btn_profile.setText(String.valueOf(Log.userId));
 
+
         btn_reload.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+
+
+
                 //Booking Table
                 ObservableList<Bookings> searchModelBookingObservableList = DButils.getBookingTable();
                 tc_bookingId.setCellValueFactory(new PropertyValueFactory<>("bookingId"));
