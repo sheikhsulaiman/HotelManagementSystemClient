@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.ContextMenuEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -47,5 +48,21 @@ public class SceneSwitcher {
             throw new RuntimeException(e);
         }
 
+    }
+
+    public static void changeScene(ContextMenuEvent contextMenuEvent, String fxmlFile, String title) {
+        Parent root = null;
+        FXMLLoader loader = new FXMLLoader(SceneSwitcher.class.getResource(fxmlFile));
+        try{
+            root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) ((Node)contextMenuEvent.getSource()).getScene().getWindow();
+            stage.setTitle(title);
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

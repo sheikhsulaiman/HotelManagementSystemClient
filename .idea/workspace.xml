@@ -5,16 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d927113b-adff-4294-bd78-8edc7cc963e8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/controllers/ProfileController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/hotel/hotelclient/profile.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/controllers/ModifyBookingController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/utils/Value.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/hotel/hotelclient/modifyBooking.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/communication/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/communication/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/communication/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/communication/Request.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/controllers/BookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/controllers/BookingController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/controllers/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/controllers/DashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/controllers/LogInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/controllers/LogInController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/controllers/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/controllers/SignUpController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/database/hotel.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/database/hotel.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/utils/SceneSwitcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/utils/SceneSwitcher.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +126,10 @@
       <workItem from="1685891542344" duration="4709000" />
       <workItem from="1685911125198" duration="8449000" />
       <workItem from="1685924100547" duration="16403000" />
-      <workItem from="1685942686379" duration="10021000" />
+      <workItem from="1685942686379" duration="15740000" />
+      <workItem from="1685967252757" duration="2057000" />
+      <workItem from="1685970243366" duration="294000" />
+      <workItem from="1685973579315" duration="1681000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1685754843032</created>
@@ -186,7 +187,21 @@
       <option name="project" value="LOCAL" />
       <updated>1685941027887</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="set Server not found Alert">
+      <created>1685958596301</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1685958596301</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Add user profile edit and update functionalities">
+      <created>1685958707984</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1685958707984</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -212,6 +227,8 @@
     <MESSAGE value="resolve new user registration" />
     <MESSAGE value="resolve new booking by client" />
     <MESSAGE value="resolve reset button" />
-    <option name="LAST_COMMIT_MESSAGE" value="resolve reset button" />
+    <MESSAGE value="set Server not found Alert" />
+    <MESSAGE value="Add user profile edit and update functionalities" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add user profile edit and update functionalities" />
   </component>
 </project>

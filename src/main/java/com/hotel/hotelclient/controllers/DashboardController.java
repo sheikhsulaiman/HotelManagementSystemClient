@@ -6,6 +6,7 @@ import com.hotel.hotelclient.database.DButils;
 import com.hotel.hotelclient.utils.Log;
 import com.hotel.hotelclient.utils.SceneSwitcher;
 import com.hotel.hotelclient.utils.Search;
+import com.hotel.hotelclient.utils.Value;
 import com.hotel.hotelclient.utils.tables.Bookings;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,6 +21,7 @@ import java.util.ResourceBundle;
 
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.ContextMenuEvent;
 
 public class DashboardController implements Initializable {
     @FXML
@@ -69,6 +71,8 @@ public class DashboardController implements Initializable {
     @FXML
     private TableView<Bookings> tv_bookings;
 
+    private Bookings bookings;
+
 
 
     @Override
@@ -78,6 +82,17 @@ public class DashboardController implements Initializable {
 
         btn_profile.setOnAction(event -> SceneSwitcher.changeScene(event,"../profile.fxml","Profile"));
 
+
+        tv_bookings.setOnContextMenuRequested(new EventHandler<ContextMenuEvent>() {
+            @Override
+            public void handle(ContextMenuEvent contextMenuEvent) {
+                bookings=tv_bookings.getSelectionModel().getSelectedItem();
+                Integer id =bookings.getBookingId();
+                Value.setIntegerValue(id);
+                String title = "Edit Booking "+id.toString();
+                SceneSwitcher.changeScene(contextMenuEvent,"../modifyBooking.fxml",title);
+            }
+        });
 
         btn_newbooking.setOnAction(new EventHandler<ActionEvent>() {
             @Override

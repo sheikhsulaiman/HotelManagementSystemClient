@@ -10,6 +10,15 @@ public class Request {
     public static String newBooking(String roomNo,String userId,String checkInDate,String checkOutDate,String payType,String roomService,String poolAccess,String carParking){
         return ("newBooking"+"~"+roomNo+"~"+userId+"~"+checkInDate+"~"+checkOutDate+"~"+payType+"~"+"Unpaid"+"~"+roomService+"~"+poolAccess+"~"+carParking);
     }
+    public static String updateBooking(String bookingId,String roomNo,String userId,String checkInDate,String checkOutDate,String payType,String payStatus,String roomService,String poolAccess,String carParking){
+        return ("updateBooking"+"~"+bookingId+"~"+roomNo+"~"+userId+"~"+checkInDate+"~"+checkOutDate+"~"+payType+"~"+payStatus+"~"+roomService+"~"+poolAccess+"~"+carParking);
+    }
+    public static String updateInvoice(String bookingId,int cost,String status){
+        return ("updateInvoice"+"~"+bookingId+"~"+cost+"~"+status);
+    }
+    public static String updateMoneyVault(String bookingId,String status){
+        return ("updateMoneyVault"+"~"+bookingId+"~"+status);
+    }
 
     public static String fetchCalendar(){
         return ("getCalendar");
@@ -27,6 +36,9 @@ public class Request {
 
     public static String createNewInvoice(String bookingId,String cost,String status){
         return ("createNewInvoice"+"~"+bookingId+"~"+cost+"~"+status);
+    }
+    public static String deleteBooking(String bookingId){
+        return ("deleteBooking"+"~"+bookingId);
     }
     public static String updateProfile(String firstname,String lastname,String phone,String gender,String email,String address,String userId,String password){
         return ("updateProfile"+"~"+firstname+"~"+lastname+"~"+phone+"~"+gender+"~"+email+"~"+address+"~"+userId+"~"+password);
