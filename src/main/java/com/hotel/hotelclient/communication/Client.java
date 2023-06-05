@@ -1,5 +1,7 @@
 package com.hotel.hotelclient.communication;
 
+import javafx.scene.control.Alert;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -24,7 +26,10 @@ public class Client {
                     dout.flush();
                     receive = (din.readUTF().toString());
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Connection Error");
+            alert.setContentText("Server not found!");
+            alert.show();
         }
     }
 }
