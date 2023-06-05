@@ -51,7 +51,7 @@ public class LogInController implements Initializable {
             public void handle(ActionEvent event) {
                 Media log = new Media( Request.logIn(tf_userId.getText(),tf_password.getText()));
                     String rawLogData = log.getReceivedData();
-                    String[] list = rawLogData.split(",");
+                    String[] list = rawLogData.split("~");
                 //System.out.println(Arrays.toString(list));
                     if (list[0].equals(tf_userId.getText())) {
                         Log.setUserId(Integer.parseInt(list[0]));

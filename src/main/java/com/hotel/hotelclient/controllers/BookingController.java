@@ -110,7 +110,7 @@ public class BookingController implements Initializable {
                         for (String data : listBooking) {
                             //System.out.println(Arrays.toString(data.split(",")));
                             DButils.clearAll();
-                                DButils.updateBookingTable(data.split(","));
+                                DButils.updateBookingTable(data.split("~"));
                         }
                     }
                     int bookingId = DButils.getLastBookingId();

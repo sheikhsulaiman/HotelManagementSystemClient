@@ -44,9 +44,6 @@ public class SignUpController implements Initializable {
     @FXML
     private Button btn_back;
 
-    @FXML
-    private Label l_errorMessage;
-
     private String[] gender={"male","female"};
 
     //public static int generatedId;

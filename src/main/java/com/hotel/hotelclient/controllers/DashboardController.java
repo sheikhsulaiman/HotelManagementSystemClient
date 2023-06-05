@@ -76,6 +76,8 @@ public class DashboardController implements Initializable {
 
         fetchAllDataFromServer();
 
+        btn_profile.setOnAction(event -> SceneSwitcher.changeScene(event,"../profile.fxml","Profile"));
+
 
         btn_newbooking.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -127,8 +129,8 @@ public class DashboardController implements Initializable {
             String[] listBooking = rawBookingData.split(":");
             //System.out.println(Arrays.toString(listBooking));
             for (String data : listBooking) {
-                //System.out.println(Arrays.toString(data.split(",")));
-                    DButils.updateBookingTable(data.split(","));
+                //System.out.println(Arrays.toString(data.split("~)));
+                    DButils.updateBookingTable(data.split("~"));
             }
         }
         Media calendar = new Media(Request.fetchCalendar());
@@ -137,8 +139,8 @@ public class DashboardController implements Initializable {
             String[] listCalendar = rawCalendarData.split(":");
             //System.out.println(Arrays.toString(listBooking));
             for (String data : listCalendar) {
-                //System.out.println(Arrays.toString(data.split(",")));
-                    DButils.updateCalendarTable(data.split(","));
+                //System.out.println(Arrays.toString(data.split("~)));
+                    DButils.updateCalendarTable(data.split("~"));
             }
         }
         Media rooms = new Media(Request.fetchRooms());
@@ -147,8 +149,8 @@ public class DashboardController implements Initializable {
             String[] listRoom = rawRoomsData.split(":");
             //System.out.println(Arrays.toString(listRoom));
             for (String data : listRoom) {
-                //System.out.println(Arrays.toString(data.split(",")));
-                    DButils.updateRoomsTable(data.split(","));
+                //System.out.println(Arrays.toString(data.split("~)));
+                    DButils.updateRoomsTable(data.split("~"));
 
             }
         }
