@@ -3,8 +3,10 @@ package com.hotel.hotelclient.controllers;
 import com.hotel.hotelclient.communication.Media;
 import com.hotel.hotelclient.communication.Request;
 import com.hotel.hotelclient.utils.Log;
+import com.hotel.hotelclient.utils.PdfExport;
 import com.hotel.hotelclient.utils.SceneSwitcher;
 import com.hotel.hotelclient.database.DButils;
+import com.hotel.hotelclient.utils.pricechart.PriceChart;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -12,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -99,12 +102,39 @@ public class BookingController implements Initializable {
             public void handle(ActionEvent event) {
                 try {
                     Media newBooking = new Media(Request.newBooking(cb_roomNo.getValue(), tf_user_id.getText(), dp_checkIn.getValue().toString(), dp_checkOut.getValue().toString(), cb_payType.getValue() == null ? "Cash" : cb_payType.getValue(), ckb_roomService.isSelected() ? "YES" : "NO", ckb_poolAccess.isSelected() ? "YES" : "NO", ckb_carParking.isSelected() ? "YES" : "NO"));
+                    Media bookings = new Media(Request.getBookingDetailsForClient());
+                    String rawBookingData = (bookings.getReceivedData());
+                    if(!(rawBookingData.isBlank()||rawBookingData.isEmpty())) {
+                        String[] listBooking = rawBookingData.split(":");
+                        //System.out.println(Arrays.toString(listBooking));
+                        for (String data : listBooking) {
+                            //System.out.println(Arrays.toString(data.split(",")));
+                            DButils.clearAll();
+                                DButils.updateBookingTable(data.split(","));
+                        }
+                    }
+                    int bookingId = DButils.getLastBookingId();
+                    Media createInvoice = new Media(Request.createNewInvoice(Integer.toString(bookingId), String.valueOf(PriceChart.calculatePrice(cb_roomNo.getValue(), dp_checkIn.getValue(), dp_checkOut.getValue(), ckb_roomService.isSelected() ? "YES" : "NO", ckb_carParking.isSelected() ? "YES" : "NO", ckb_poolAccess.isSelected() ? "YES" : "NO")),"Unpaid"));
+                    Media getInvoiceId = new Media(Request.fetchInvoiceId(String.valueOf(bookingId)));
+                    String invoiceId = getInvoiceId.getReceivedData();
+                    if(rBtn_print.isSelected()){
+                        PdfExport.printInvoice(Integer.parseInt(invoiceId),bookingId,Integer.parseInt(cb_roomNo.getValue()), Integer.parseInt(tf_user_id.getText()), dp_checkIn.getValue().toString(), dp_checkOut.getValue().toString(), cb_payType.getValue()==null?"Cash":cb_payType.getValue(), cb_payStatus.getValue()==null?"Unpaid":cb_payStatus.getValue(), ckb_roomService.isSelected() ? "YES" : "NO", ckb_poolAccess.isSelected() ? "YES" : "NO", ckb_carParking.isSelected() ? "YES" : "NO");
+                    }
                 }catch (NullPointerException e){
                     Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setContentText("Please pick dates from datepicker");
+                    alert.setContentText("Please fill up all the fields");
                     alert.show();
                 }
                 SceneSwitcher.changeScene(event,"../dashboard.fxml","Dashboard");
+            }
+        });
+
+        btn_predictPrice.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    l_predictedPrice.setText("$ " + Integer.toString(PriceChart.calculatePrice(cb_roomNo.getValue(), dp_checkIn.getValue(), dp_checkOut.getValue(), ckb_roomService.isSelected() ? "YES" : "NO", ckb_carParking.isSelected() ? "YES" : "NO", ckb_poolAccess.isSelected() ? "YES" : "NO")));
+                }catch (NumberFormatException e){}
             }
         });
 

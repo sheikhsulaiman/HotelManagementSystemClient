@@ -1,7 +1,6 @@
 package com.hotel.hotelclient.utils;
 
-//import com.hotel.hoteladmin.DButils.DButils;
-//import com.hotel.hoteladmin.utils.pricechart.PriceChart;
+import com.hotel.hotelclient.database.DButils;
 import com.hotel.hotelclient.utils.pricechart.PriceChart;
 import com.itextpdf.kernel.color.Color;
 import com.itextpdf.kernel.color.DeviceRgb;
@@ -29,7 +28,7 @@ import java.util.ArrayList;
 public class PdfExport {
     public static void printInvoice(int invoiceNo,int bookingId,int roomNo,int userId,String checkInDate,String checkOutDate,String payType,String payStatus,String roomService,String poolAccess,String carParking){
 
-      //  ArrayList<String> list = DButils.getBookingDetails(bookingId);
+        ArrayList<String> list = DButils.getBookingDetails(bookingId);
 
         try {
             FileChooser fileChooser = new FileChooser();
@@ -74,7 +73,7 @@ public class PdfExport {
         customerInformationTable.addCell(new Cell().add("Invoice No.").setBorder(Border.NO_BORDER).setTextAlignment(TextAlignment.RIGHT).setMarginRight(5f));
         customerInformationTable.addCell(new Cell().add(Integer.toString(invoiceNo)).setBorder(Border.NO_BORDER).setTextAlignment(TextAlignment.CENTER).setFontColor(new DeviceRgb(0,128,0)));
         customerInformationTable.addCell(new Cell().add("Name"));
-        //customerInformationTable.addCell(new Cell().add(DButils.getUserName(userId)));
+        customerInformationTable.addCell(new Cell().add(Log.getFirstname()+" "+Log.getLastname()));
         customerInformationTable.addCell(new Cell().add("ID").setTextAlignment(TextAlignment.CENTER));
         customerInformationTable.addCell(new Cell().add(Integer.toString(userId)).setTextAlignment(TextAlignment.CENTER));
 
@@ -98,20 +97,20 @@ public class PdfExport {
         listBookingTable.addCell(new Cell().add("Check In"));
         listBookingTable.addCell(new Cell().add(checkInDate));
         listBookingTable.addCell(new Cell().add("Room Type."));
-        //listBookingTable.addCell(new Cell().add(DButils.getRoomType(list.get(0))));
+        listBookingTable.addCell(new Cell().add(DButils.getRoomType(list.get(0))));
         listBookingTable.addCell(new Cell().add("Check Out"));
         listBookingTable.addCell(new Cell().add(checkOutDate));
         listBookingTable.addCell(new Cell().add("Room Service"));
         listBookingTable.addCell(new Cell().add(roomService));
         listBookingTable.addCell(new Cell(2,0).add("Payment Status").setVerticalAlignment(VerticalAlignment.MIDDLE));
-        //listBookingTable.addCell(new Cell(2,0).add(list.get(5)).setVerticalAlignment(VerticalAlignment.MIDDLE));
+        listBookingTable.addCell(new Cell(2,0).add(list.get(5)).setVerticalAlignment(VerticalAlignment.MIDDLE));
         listBookingTable.addCell(new Cell().add("Pool Access"));
         listBookingTable.addCell(new Cell().add(poolAccess));
         listBookingTable.addCell(new Cell().add("Car Parking"));
         listBookingTable.addCell(new Cell().add(carParking));
         listBookingTable.addCell(new Cell().add("Total"));
             //PriceChart.calculatePrice(list.get(0), LocalDate.parse( list.get(2)),LocalDate.parse( list.get(3)), list.get(6), list.get(7), list.get(8));
-        listBookingTable.addCell(new Cell().add("$ "+ PriceChart.calculatePrice(Integer.toString(roomNo),LocalDate.parse( checkInDate),LocalDate.parse( checkOutDate), roomService, carParking, poolAccess)));
+        listBookingTable.addCell(new Cell().add("$ "+PriceChart.calculatePrice(Integer.toString(roomNo),LocalDate.parse( checkInDate),LocalDate.parse( checkOutDate), roomService, carParking, poolAccess)));
 
 
         Paragraph date = new Paragraph();

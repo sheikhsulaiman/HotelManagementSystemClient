@@ -11,68 +11,59 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class DButils {
-    public static void updateBookingTable(String[] list) throws SQLException {
+    public static void updateBookingTable(String[] list){
         DataBaseConnection dbConnection = new DataBaseConnection();
         Connection connectDB = dbConnection.getDatabaseLink();
         try {
-            PreparedStatement updateBookingStatement = connectDB.prepareStatement("insert into bookings(roomno, userid, checkin, checkout, paymentmethod, paymentstatus, roomservice, poolaccess, carparking,bookingid) values (?,?,?,?,?,?,?,?,?,?)");
-            //PreparedStatement updateCalenderStatement = connectDB.prepareStatement("insert into calendar(roomid,bookingid,start,end) values (?,?,?,?)");
-
-            updateBookingStatement.setInt(1,Integer.parseInt( list[1]));
-            //updateCalenderStatement.setInt(1,Integer.parseInt( list[1]));
-            updateBookingStatement.setInt(2,Integer.parseInt( list[2]));
-            //updateCalenderStatement.setInt(2,Integer.parseInt( list[0]));
-
-            updateBookingStatement.setString(3, list[3]);
-            //updateCalenderStatement.setString(3, list[3]);
-            updateBookingStatement.setString(4,  list[4]);
-            //updateCalenderStatement.setString(4,  list[4]);
-            updateBookingStatement.setString(5,  list[5]);
-            updateBookingStatement.setString(6,  list[6]);
-            updateBookingStatement.setString(7,  list[7]);
-            updateBookingStatement.setString(8,  list[8]);
-            updateBookingStatement.setString(9,  list[9]);
-            updateBookingStatement.setInt(10,Integer.parseInt( list[0]));
-
-            updateBookingStatement.executeUpdate();
-            //updateCalenderStatement.executeUpdate();
+            PreparedStatement insertBookingStatement = connectDB.prepareStatement("insert into bookings(roomno, userid, checkin, checkout, paymentmethod, paymentstatus, roomservice, poolaccess, carparking,bookingid) values (?,?,?,?,?,?,?,?,?,?)");
+            insertBookingStatement.setInt(1, Integer.parseInt(list[1]));
+            insertBookingStatement.setInt(2, Integer.parseInt(list[2]));
+            insertBookingStatement.setString(3, list[3]);
+            insertBookingStatement.setString(4, list[4]);
+            insertBookingStatement.setString(5, list[5]);
+            insertBookingStatement.setString(6, list[6]);
+            insertBookingStatement.setString(7, list[7]);
+            insertBookingStatement.setString(8, list[8]);
+            insertBookingStatement.setString(9, list[9]);
+            insertBookingStatement.setInt(10, Integer.parseInt(list[0]));
+            insertBookingStatement.executeUpdate();
             connectDB.close();
-
         } catch (SQLException e) {
-            e.printStackTrace();
-            //System.out.println("SQL Exception");
+            throw new RuntimeException(e);
         }
     }
-    public static void updateCalendarTable(String[] list) throws SQLException {
+
+
+
+    private static void setStatements(String[] list, PreparedStatement BookingStatement) throws SQLException {
+        BookingStatement.setInt(2, Integer.parseInt(list[2]));
+        BookingStatement.setString(3, list[3]);
+        BookingStatement.setString(4, list[4]);
+        BookingStatement.setString(5, list[5]);
+        BookingStatement.setString(6, list[6]);
+        BookingStatement.setString(7, list[7]);
+        BookingStatement.setString(8, list[8]);
+        BookingStatement.setString(9, list[9]);
+        BookingStatement.setInt(10, Integer.parseInt(list[0]));
+        BookingStatement.executeUpdate();
+    }
+
+    public static void updateCalendarTable(String[] list){
         DataBaseConnection dbConnection = new DataBaseConnection();
         Connection connectDB = dbConnection.getDatabaseLink();
+
+
         try {
-            //PreparedStatement updateBookingStatement = connectDB.prepareStatement("insert into bookings(roomno, userid, checkin, checkout, paymentmethod, paymentstatus, roomservice, poolaccess, carparking,bookingid) values (?,?,?,?,?,?,?,?,?,?)");
-            PreparedStatement updateCalenderStatement = connectDB.prepareStatement("insert into calendar(id,roomid,start,end) values (?,?,?,?)");
-
-            //updateBookingStatement.setInt(1,Integer.parseInt( list[1]));
-            updateCalenderStatement.setInt(1,Integer.parseInt( list[0]));
-            updateCalenderStatement.setInt(2,Integer.parseInt( list[1]));
-            //updateCalenderStatement.setInt(2,Integer.parseInt( list[0]));
-
-            //updateBookingStatement.setString(3, list[3]);
-            updateCalenderStatement.setString(3, list[2]);
-            //updateBookingStatement.setString(4,  list[4]);
-            updateCalenderStatement.setString(4,  list[3]);
-            //updateBookingStatement.setString(5,  list[5]);
-            //updateBookingStatement.setString(6,  list[6]);
-            //updateBookingStatement.setString(7,  list[7]);
-            //updateBookingStatement.setString(8,  list[8]);
-            //updateBookingStatement.setString(9,  list[9]);
-            //updateBookingStatement.setInt(10,Integer.parseInt( list[0]));
-
-            //updateBookingStatement.executeUpdate();
-            updateCalenderStatement.executeUpdate();
+            PreparedStatement insertCalenderStatement = connectDB.prepareStatement("insert into calendar(id,roomid,start,end) values (?,?,?,?)");
+            insertCalenderStatement.setInt(1, Integer.parseInt(list[0]));
+            insertCalenderStatement.setInt(2, Integer.parseInt(list[1]));
+            insertCalenderStatement.setString(3, list[2]);
+            insertCalenderStatement.setString(4, list[3]);
+            insertCalenderStatement.executeUpdate();
             connectDB.close();
-
         } catch (SQLException e) {
             e.printStackTrace();
-            //System.out.println("SQL Exception");
+            System.out.println("SQL Exception calendar");
         }
     }
     public static void clearAll(){
@@ -93,23 +84,23 @@ public class DButils {
         }
     }
 
-    public static void updateRoomsTable(String[] list ) throws SQLException {
+    public static void updateRoomsTable(String[] list ) {
         DataBaseConnection dbConnection = new DataBaseConnection();
         Connection connectDB = dbConnection.getDatabaseLink();
-        try {
-            PreparedStatement updateRoomsStatement = connectDB.prepareStatement("INSERT INTO rooms(number,type) VALUES (?,?)");
 
-            updateRoomsStatement.setInt(1,Integer.parseInt(list[0]));
-            updateRoomsStatement.setString(2,list[1]);
+        PreparedStatement updateRoomsStatement = null;
+        try {
+            updateRoomsStatement = connectDB.prepareStatement("INSERT INTO rooms(number,type) VALUES (?,?)");
+            updateRoomsStatement.setString(2, list[1]);
+            updateRoomsStatement.setInt(1, Integer.parseInt(list[0]));
 
             updateRoomsStatement.executeUpdate();
-            connectDB.close();
-
         } catch (SQLException e) {
-            e.printStackTrace();
-            //System.out.println("SQL Exception");
+            throw new RuntimeException(e);
         }
     }
+
+
 
     public static ArrayList<String> getRooms(String roomType){
         DataBaseConnection dbConnection = new DataBaseConnection();
@@ -130,6 +121,7 @@ public class DButils {
             }
             connectDB.close();
         } catch (SQLException e) {
+            e.printStackTrace();
             System.out.println("SQL Exception");
         }
         return list;
@@ -150,6 +142,7 @@ public class DButils {
             }
             connectDB.close();
         } catch (SQLException e) {
+            e.printStackTrace();
             System.out.println("SQL Exception");
         }
         return roomType;
@@ -229,8 +222,59 @@ public class DButils {
             }
             connectDB.close();
         } catch (SQLException e) {
+            e.printStackTrace();
             System.out.println("SQL Exception");
         }
         return list;
     }
+
+    public static int getLastBookingId(){
+        DataBaseConnection dbConnection = new DataBaseConnection();
+        Connection connectDB = dbConnection.getDatabaseLink();
+        int id=0;
+
+        try {
+            Statement getLastIdStatement = connectDB.createStatement();
+            ResultSet resultSet = getLastIdStatement.executeQuery("SELECT bookingid FROM bookings WHERE ROWID IN ( SELECT max( ROWID ) FROM bookings)" );
+
+            id=resultSet.getInt("bookingid");
+            connectDB.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+//            System.out.println("SQL Exception");
+        }
+        return id;
+    }
+
+    public static ArrayList<String> getBookingDetails(Integer bookingid){
+        DataBaseConnection dbConnection = new DataBaseConnection();
+        Connection connectDB = dbConnection.getDatabaseLink();
+
+        ArrayList<String> list = new ArrayList<>(10);
+
+        try{
+            PreparedStatement getStm =connectDB.prepareStatement( "SELECT * FROM bookings WHERE bookingid=?");
+            getStm.setInt(1,bookingid);
+            ResultSet resultSet = getStm.executeQuery();
+            while (resultSet.next()){
+                list.add(Integer.toString(resultSet.getInt(2)));
+                list.add(Integer.toString(resultSet.getInt(3)));
+                list.add((resultSet.getString(4)));
+                list.add((resultSet.getString(5)));
+                list.add((resultSet.getString(6)));
+                list.add((resultSet.getString(7)));
+                list.add((resultSet.getString(8)));
+                list.add((resultSet.getString(9)));
+                list.add((resultSet.getString(10)));
+                list.add((Integer.toString(resultSet.getInt("bookingid"))));
+            }
+            connectDB.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            //System.out.println("SQL Exception");
+        }
+        return list;
+    }
+
+
 }

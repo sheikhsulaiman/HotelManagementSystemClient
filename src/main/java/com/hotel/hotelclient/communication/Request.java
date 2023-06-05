@@ -21,4 +21,15 @@ public class Request {
     public static String fetchRooms(){
         return ("getRooms");
     }
+    public static String fetchInvoiceId(String bookingId){
+        return ("getInvoice"+","+bookingId);
+    }
+
+    public static String createNewInvoice(String bookingId,String cost,String status){
+        return ("createNewInvoice"+","+bookingId+","+cost+","+status);
+    }
+
+    public static String getBookingDetailsForClient(){
+        return ("getBookingDetailsForClient");
+    }
 }

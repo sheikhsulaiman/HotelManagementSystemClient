@@ -63,48 +63,7 @@ public class LogInController implements Initializable {
                         Log.setAddress(list[6]);
                         SceneSwitcher.changeScene(event,"../dashboard.fxml","Dashboard");
 
-                        Media bookings = new Media(Request.fetchBookings(Integer.toString(Log.userId)));
-                        String rawBookingData = (bookings.getReceivedData());
-                        if(!(rawBookingData.isBlank()||rawBookingData.isEmpty())) {
-                            String[] listBooking = rawBookingData.split(":");
-                            //System.out.println(Arrays.toString(listBooking));
-                            for (String data : listBooking) {
-                                //System.out.println(Arrays.toString(data.split(",")));
-                                try {
-                                    DButils.updateBookingTable(data.split(","));
-                                } catch (SQLException e) {
-                                    throw new RuntimeException(e);
-                                }
-                            }
-                        }
-                        Media calendar = new Media(Request.fetchCalendar());
-                        String rawCalendarData = (calendar.getReceivedData());
-                        if(!(rawCalendarData.isBlank()||rawCalendarData.isEmpty())) {
-                            String[] listCalendar = rawCalendarData.split(":");
-                            //System.out.println(Arrays.toString(listBooking));
-                            for (String data : listCalendar) {
-                                //System.out.println(Arrays.toString(data.split(",")));
-                                try {
-                                    DButils.updateCalendarTable(data.split(","));
-                                } catch (SQLException e) {
-                                    throw new RuntimeException(e);
-                                }
-                            }
-                        }
-                        Media rooms = new Media(Request.fetchRooms());
-                        String rawRoomsData = rooms.getReceivedData();
-                        if(!(rawRoomsData.isEmpty()||rawRoomsData.isBlank())) {
-                            String[] listRoom = rawRoomsData.split(":");
-                            //System.out.println(Arrays.toString(listRoom));
-                            for (String data : listRoom) {
-                                //System.out.println(Arrays.toString(data.split(",")));
-                                try {
-                                    DButils.updateRoomsTable(data.split(","));
-                                } catch (SQLException e) {
-                                    throw new RuntimeException(e);
-                                }
-                            }
-                        }
+
                     } else {
                         l_errorMessage.setText("Wrong Credential");
                     }
