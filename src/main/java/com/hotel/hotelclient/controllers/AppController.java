@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 
 import java.net.URL;
@@ -20,6 +21,9 @@ public class AppController implements Initializable {
 
     @FXML
     private Button btn_bookSingle;
+
+    @FXML
+    private Button btn_bookMulti;
 
     @FXML
     private Button btn_contact;
@@ -45,6 +49,36 @@ public class AppController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 SceneSwitcher.changeScene(event,"../signup.fxml","Sign Up");
+            }
+        });
+
+        btn_bookSingle.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("Please Log in for new booking.");
+                alert.show();
+                SceneSwitcher.changeScene(event,"../login.fxml","Log in");
+            }
+        });
+        btn_bookDouble.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("Please Log in for new booking.");
+                alert.show();
+                SceneSwitcher.changeScene(event,"../login.fxml","Log in");
+
+            }
+        });
+        btn_bookMulti.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("Please Log in for new booking.");
+                alert.show();
+                SceneSwitcher.changeScene(event,"../login.fxml","Log in");
+
             }
         });
     }

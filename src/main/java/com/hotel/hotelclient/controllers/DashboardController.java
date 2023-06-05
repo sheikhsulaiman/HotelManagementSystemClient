@@ -36,6 +36,13 @@ public class DashboardController implements Initializable {
     private Button btn_newbooking;
 
     @FXML
+    private Button btn_bookMulti;
+    @FXML
+    private Button btn_bookSingle;
+    @FXML
+    private Button btn_bookDouble;
+
+    @FXML
     private TextField tf_search;
 
     @FXML
@@ -133,7 +140,25 @@ public class DashboardController implements Initializable {
         });
 
 
+        btn_bookSingle.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                SceneSwitcher.changeScene(event,"../booking.fxml","New Booking");
+            }
+        });
+        btn_bookDouble.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                SceneSwitcher.changeScene(event,"../booking.fxml","New Booking");
+            }
+        });
 
+        btn_bookMulti.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                SceneSwitcher.changeScene(event,"../booking.fxml","New Booking");
+            }
+        });
     }
 
     private void fetchAllDataFromServer(){
@@ -170,4 +195,5 @@ public class DashboardController implements Initializable {
             }
         }
     }
+
 }

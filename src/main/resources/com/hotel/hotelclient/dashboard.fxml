@@ -247,7 +247,7 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
                         </Label>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" style="-fx-background-color: #00BCA1; -fx-border-radius: 10px; -fx-cursor: hand;" text="Book Now" textAlignment="CENTER" textFill="WHITE">
+                        <Button fx:id="btn_bookMulti" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" style="-fx-background-color: #00BCA1; -fx-border-radius: 10px; -fx-cursor: hand;" text="Book Now" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="Arial Bold" size="22.0" />
                            </font>

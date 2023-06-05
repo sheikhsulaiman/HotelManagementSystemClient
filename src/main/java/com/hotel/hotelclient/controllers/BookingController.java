@@ -6,6 +6,7 @@ import com.hotel.hotelclient.utils.Log;
 import com.hotel.hotelclient.utils.PdfExport;
 import com.hotel.hotelclient.utils.SceneSwitcher;
 import com.hotel.hotelclient.database.DButils;
+import com.hotel.hotelclient.utils.Value;
 import com.hotel.hotelclient.utils.pricechart.PriceChart;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
