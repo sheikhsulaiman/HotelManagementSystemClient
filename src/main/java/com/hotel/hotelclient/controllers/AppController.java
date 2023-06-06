@@ -28,8 +28,6 @@ public class AppController implements Initializable {
     @FXML
     private Button btn_contact;
 
-    @FXML
-    private Button btn_home;
 
     @FXML
     private Button btn_logIn;

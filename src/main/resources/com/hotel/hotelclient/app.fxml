@@ -43,11 +43,6 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                     </padding>
                 </HBox>
-                <Button fx:id="btn_home" layoutX="7.0" layoutY="7.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Nice Hotel" textFill="#00bca1">
-                    <font>
-                        <Font name="French Script MT" size="26.0" />
-                    </font>
-                </Button>
             </children></Pane>
         <HBox blendMode="SRC_ATOP" layoutX="14.0" layoutY="69.0" prefHeight="336.0" prefWidth="989.0" style="-fx-border-radius: 10px; -fx-border-color: #00BCA1;" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="6.0">
             <children>
@@ -285,5 +280,10 @@
                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </padding>
         </HBox>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="8.0" layoutY="4.0" text="bigMind Hotel" textFill="#00bca1">
+         <font>
+            <Font name="French Script MT" size="41.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>
