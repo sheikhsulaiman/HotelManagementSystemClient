@@ -1,10 +1,32 @@
 package com.hotel.hotelclient.utils;
 
+import javafx.scene.control.Alert;
+
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
 public class Log {
     private static boolean logInStatus;
     public static int userId;
     private static int phone;
     private static String firstname,lastname,gender,email,address;
+
+    private static String serverIp;
+
+    public static String getServerIp() {
+        return serverIp;
+    }
+
+    public static void setServerIp(String serverIp) {
+        Log.serverIp = serverIp;
+    }
+
+    static {
+        try {
+            serverIp = InetAddress.getLocalHost().getHostAddress();
+        } catch (UnknownHostException ignored) {
+        }
+    }
 
     public static int getUserId() {
         return userId;

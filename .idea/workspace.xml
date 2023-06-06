@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="d927113b-adff-4294-bd78-8edc7cc963e8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/hotel/hotelclient/app.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/hotel/hotelclient/app.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/communication/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/communication/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/controllers/LogInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/controllers/LogInController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/database/hotel.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/database/hotel.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/utils/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/utils/Log.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/hotel/hotelclient/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/hotel/hotelclient/login.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +130,7 @@
       <workItem from="1685973579315" duration="1805000" />
       <workItem from="1685977306942" duration="3327000" />
       <workItem from="1686017906751" duration="1210000" />
-      <workItem from="1686021094830" duration="365000" />
+      <workItem from="1686021094830" duration="3407000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1685754843032</created>
@@ -219,7 +223,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685980761657</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="fix logo">
+      <created>1686021588889</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1686021588889</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -249,6 +260,7 @@
     <MESSAGE value="Add user profile edit and update functionalities" />
     <MESSAGE value="fix modifyBooking" />
     <MESSAGE value="fix button action under images" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix button action under images" />
+    <MESSAGE value="fix logo" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix logo" />
   </component>
 </project>

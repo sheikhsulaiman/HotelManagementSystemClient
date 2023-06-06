@@ -74,5 +74,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <TextField fx:id="tf_serverip" alignment="CENTER" layoutX="865.0" layoutY="31.0" prefHeight="25.0" prefWidth="110.0" />
+      <Label layoutX="812.0" layoutY="35.0" text="Server IP:" textFill="#00bca1" />
    </children>
 </AnchorPane>

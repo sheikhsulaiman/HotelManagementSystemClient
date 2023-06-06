@@ -1,5 +1,6 @@
 package com.hotel.hotelclient.communication;
 
+import com.hotel.hotelclient.utils.Log;
 import javafx.scene.control.Alert;
 
 import java.io.DataInputStream;
@@ -16,7 +17,8 @@ public class Client {
 
     public Client(String send){
         try{
-            Socket s = new Socket("localhost", 9999);
+            String host = Log.getServerIp();
+            Socket s = new Socket(host, 9999);
 
             DataInputStream din = new DataInputStream(s.getInputStream());
             DataOutputStream dout = new DataOutputStream(s.getOutputStream());
