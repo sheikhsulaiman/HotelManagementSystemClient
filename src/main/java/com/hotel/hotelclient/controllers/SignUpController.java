@@ -5,6 +5,8 @@ import com.hotel.hotelclient.communication.Media;
 import com.hotel.hotelclient.communication.Request;
 import com.hotel.hotelclient.utils.Log;
 import com.hotel.hotelclient.utils.SceneSwitcher;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -34,6 +36,8 @@ public class SignUpController implements Initializable {
 
     @FXML
     private TextField tf_lastname;
+    @FXML
+    private TextField tf_serverip;
 
     @FXML
     private TextField tf_phone;
@@ -52,6 +56,16 @@ public class SignUpController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        tf_serverip.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable,
+                                String oldValue, String newValue) {
+
+                Log.setServerIp(newValue);
+            }
+        });
+        tf_serverip.setText(Log.getServerIp());
 
         cb_gender.getItems().addAll(gender);
 
