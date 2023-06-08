@@ -95,6 +95,8 @@ public class ModifyBookingController implements Initializable {
         }else {
             ckb_carParking.setSelected(false);
         }
+
+
         l_predictedPrice.setText("$ "+Integer.toString(PriceChart.calculatePrice(cb_roomNo.getValue(),dp_checkIn.getValue(),dp_checkOut.getValue(), ckb_roomService.isSelected()?"YES":"NO", ckb_carParking.isSelected()?"YES":"NO", ckb_poolAccess.isSelected()?"YES":"NO")));
 
         btn_back.setOnAction(event -> SceneSwitcher.changeScene(event,"../dashboard.fxml","Dashboard"));
@@ -189,18 +191,19 @@ public class ModifyBookingController implements Initializable {
                         if(deleteBooking.getReceivedData().equals("true")){
                             Alert alert = new Alert(Alert.AlertType.INFORMATION);
                             if(cb_payStatus.getValue().equals("Paid")) {
-                                alert.setContentText("Your booking has been deleted.");
-                            }else{
                                 alert.setContentText("Your booking has been deleted.\nFor money refund contact to the reception.\nThank You.");
+
+                            }else{
+                                alert.setContentText("Your booking has been deleted.");
                             }
                             alert.show();
                         }
                         //DButils.deleteBooking(Integer.parseInt(list.get(9)));
                         SceneSwitcher.changeScene(event,"../dashboard.fxml","Dashboard");
                     } else if (response == buttonNo) {
+                        SceneSwitcher.changeScene(event,"../dashboard.fxml","Dashboard");
                     }
                 });
-
             }
         });
 
@@ -212,7 +215,7 @@ public class ModifyBookingController implements Initializable {
                 //Media createInvoice = new Media(Request.createNewInvoice((list.get(0)), String.valueOf(PriceChart.calculatePrice(cb_roomNo.getValue(), dp_checkIn.getValue(), dp_checkOut.getValue(), ckb_roomService.isSelected() ? "YES" : "NO", ckb_carParking.isSelected() ? "YES" : "NO", ckb_poolAccess.isSelected() ? "YES" : "NO")),"Unpaid"));
                 Media getInvoiceId = new Media(Request.fetchInvoiceId(list.get(0)));
                 String invoiceId = getInvoiceId.getReceivedData();
-                    PdfExport.printInvoice(Integer.parseInt(invoiceId),Integer.parseInt(list.get(0)) ,Integer.parseInt(cb_roomNo.getValue()), Integer.parseInt(tf_user_id.getText()), dp_checkIn.getValue().toString(), dp_checkOut.getValue().toString(), cb_payType.getValue()==null?"Cash":cb_payType.getValue(), cb_payStatus.getValue()==null?"Unpaid":cb_payStatus.getValue(), ckb_roomService.isSelected() ? "YES" : "NO", ckb_poolAccess.isSelected() ? "YES" : "NO", ckb_carParking.isSelected() ? "YES" : "NO");
+                PdfExport.printInvoice(Integer.parseInt(invoiceId), Integer.parseInt(list.get(9)),Integer.parseInt(cb_roomNo.getValue()), Integer.parseInt(tf_user_id.getText()), dp_checkIn.getValue().toString(), dp_checkOut.getValue().toString(), cb_payType.getValue()==null?"Cash":cb_payType.getValue(), cb_payStatus.getValue()==null?"Unpaid":cb_payStatus.getValue(), ckb_roomService.isSelected() ? "YES" : "NO", ckb_poolAccess.isSelected() ? "YES" : "NO", ckb_carParking.isSelected() ? "YES" : "NO");
             }
         });
     }

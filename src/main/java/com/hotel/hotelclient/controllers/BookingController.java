@@ -130,7 +130,7 @@ public class BookingController implements Initializable {
                         //System.out.println(Arrays.toString(listBooking));
                         for (String data : listBooking) {
                             //System.out.println(Arrays.toString(data.split(",")));
-                            DButils.clearAll();
+                            DButils.clearAllBookings();
                                 DButils.updateBookingTable(data.split("~"));
                         }
                     }

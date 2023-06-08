@@ -24,7 +24,9 @@ public class App extends Application {
         stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent windowEvent) {
-                DButils.clearAll();
+                DButils.clearAllBookings();
+                DButils.clearAllCalendar();
+                DButils.clearAllRooms();
                 Platform.exit();
                 System.exit(0);
             }

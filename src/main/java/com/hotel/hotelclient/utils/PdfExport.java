@@ -29,6 +29,10 @@ public class PdfExport {
     public static void printInvoice(int invoiceNo,int bookingId,int roomNo,int userId,String checkInDate,String checkOutDate,String payType,String payStatus,String roomService,String poolAccess,String carParking){
 
         ArrayList<String> list = DButils.getBookingDetails(bookingId);
+        for (String date:list
+             ) {
+            System.out.print(" "+list);
+        }
 
         try {
             FileChooser fileChooser = new FileChooser();

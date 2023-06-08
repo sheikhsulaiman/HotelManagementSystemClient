@@ -10,13 +10,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d927113b-adff-4294-bd78-8edc7cc963e8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/utils/FetchData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/controllers/BookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/controllers/BookingController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/controllers/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/controllers/DashboardController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/controllers/LogInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/controllers/LogInController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/controllers/ModifyBookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/controllers/ModifyBookingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/controllers/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/controllers/ProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/database/DButils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/database/DButils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/database/hotel.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/database/hotel.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/utils/PdfExport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/utils/PdfExport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/utils/pricechart/PriceChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/utils/pricechart/PriceChart.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +182,7 @@
       <workItem from="1686136858926" duration="1442000" />
       <workItem from="1686139923335" duration="845000" />
       <workItem from="1686141697394" duration="3040000" />
-      <workItem from="1686214854262" duration="3982000" />
+      <workItem from="1686214854262" duration="7330000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1685754843032</created>
@@ -285,7 +289,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686026051330</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="fix booking scene print invoice">
+      <created>1686219269628</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1686219269628</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -317,6 +328,7 @@
     <MESSAGE value="fix button action under images" />
     <MESSAGE value="fix logo" />
     <MESSAGE value="add functionalities of custom server" />
-    <option name="LAST_COMMIT_MESSAGE" value="add functionalities of custom server" />
+    <MESSAGE value="fix booking scene print invoice" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix booking scene print invoice" />
   </component>
 </project>

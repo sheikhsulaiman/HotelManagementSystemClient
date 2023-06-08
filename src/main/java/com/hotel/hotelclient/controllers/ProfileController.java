@@ -70,7 +70,9 @@ public class ProfileController implements Initializable {
                 btn_logout.setOnAction(new EventHandler<ActionEvent>() {
                         @Override
                         public void handle(ActionEvent event) {
-                                DButils.clearAll();
+                                DButils.clearAllBookings();
+                                DButils.clearAllCalendar();
+                                DButils.clearAllRooms();
                                 SceneSwitcher.changeScene(event,"../app.fxml","Hotel");
                         }
                 });
