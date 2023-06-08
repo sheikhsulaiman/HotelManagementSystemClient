@@ -9,14 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d927113b-adff-4294-bd78-8edc7cc963e8" name="Changes" comment="">
+    <list default="true" id="d927113b-adff-4294-bd78-8edc7cc963e8" name="Changes" comment="fix booking scene print invoice">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/controllers/BookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/controllers/BookingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/controllers/ModifyBookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/controllers/ModifyBookingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/database/DButils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/database/DButils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/database/hotel.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/database/hotel.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/utils/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/utils/Log.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/utils/PdfExport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/utils/PdfExport.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,9 +27,15 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--follow-tags" />
+        <option name="title" value="Current Branch" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="a1ba4ac8cd88f693aeb69a61b72f9e38dfe62579" />
+        <entry key="$PROJECT_DIR$" value="invoiceFixer" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -62,7 +63,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/sonyb/OneDrive/Desktop&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Project/HotelClient/src/main/java/com/hotel/hotelclient/utils&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -77,8 +78,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Project\HotelClient\src\main\java\com\hotel\hotelclient" />
       <recent name="D:\Project\HotelClient\src\main\java\com\hotel\hotelclient\utils" />
+      <recent name="D:\Project\HotelClient\src\main\java\com\hotel\hotelclient" />
       <recent name="D:\Project\HotelClient\src\main\resources\com\hotel\hotelclient" />
       <recent name="D:\Project\HotelClient\src\main\java\com\hotel\hotelclient\database" />
     </key>
@@ -120,28 +121,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.hotel.hotelclient.Test" />
-      <module name="HotelClient" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.hotel.hotelclient.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
-      <item itemvalue="Application.Test" />
       <item itemvalue="Application.App" />
       <item itemvalue="Application.Application" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.App" />
-        <item itemvalue="Application.Test" />
+        <item itemvalue="Application.Application" />
+        <item itemvalue="Application.App" />
         <item itemvalue="Application.Application" />
       </list>
     </recent_temporary>
@@ -191,9 +179,7 @@
       <workItem from="1686136858926" duration="1442000" />
       <workItem from="1686139923335" duration="845000" />
       <workItem from="1686141697394" duration="3040000" />
-      <workItem from="1686178591834" duration="3665000" />
-      <workItem from="1686191830556" duration="7212000" />
-      <workItem from="1686203499096" duration="1020000" />
+      <workItem from="1686214854262" duration="7330000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1685754843032</created>
@@ -300,21 +286,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686026051330</updated>
     </task>
-    <task id="LOCAL-00016" summary="add functionalities of custom server in signup scene">
-      <created>1686178716201</created>
+    <task id="LOCAL-00016" summary="fix booking scene print invoice">
+      <created>1686219269628</created>
       <option name="number" value="00016" />
       <option name="presentableId" value="LOCAL-00016" />
       <option name="project" value="LOCAL" />
-      <updated>1686178716201</updated>
+      <updated>1686219269628</updated>
     </task>
-    <task id="LOCAL-00017" summary="add functionalities of custom server in signup scene">
-      <created>1686178758901</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1686178758901</updated>
-    </task>
-    <option name="localTasksCounter" value="18" />
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -346,7 +325,7 @@
     <MESSAGE value="fix button action under images" />
     <MESSAGE value="fix logo" />
     <MESSAGE value="add functionalities of custom server" />
-    <MESSAGE value="add functionalities of custom server in signup scene" />
-    <option name="LAST_COMMIT_MESSAGE" value="add functionalities of custom server in signup scene" />
+    <MESSAGE value="fix booking scene print invoice" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix booking scene print invoice" />
   </component>
 </project>

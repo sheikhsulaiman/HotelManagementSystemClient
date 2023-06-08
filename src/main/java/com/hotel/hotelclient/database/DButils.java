@@ -66,17 +66,39 @@ public class DButils {
             System.out.println("SQL Exception calendar");
         }
     }
-    public static void clearAll(){
+    public static void clearAllCalendar(){
+        DataBaseConnection dbConnection = new DataBaseConnection();
+        Connection connectDB = dbConnection.getDatabaseLink();
+
+        try {
+            Statement clearCalendarStatement = connectDB.createStatement();
+
+            clearCalendarStatement.execute("DELETE FROM calendar WHERE 1");
+            connectDB.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void clearAllBookings(){
         DataBaseConnection dbConnection = new DataBaseConnection();
         Connection connectDB = dbConnection.getDatabaseLink();
 
         try {
             Statement clearBookingStatement = connectDB.createStatement();
-            Statement clearCalendarStatement = connectDB.createStatement();
-            Statement clearRoomsStatement = connectDB.createStatement();
 
             clearBookingStatement.execute("DELETE FROM bookings WHERE 1");
-            clearCalendarStatement.execute("DELETE FROM calendar WHERE 1");
+            connectDB.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void clearAllRooms(){
+        DataBaseConnection dbConnection = new DataBaseConnection();
+        Connection connectDB = dbConnection.getDatabaseLink();
+
+        try {
+            Statement clearRoomsStatement = connectDB.createStatement();
+
             clearRoomsStatement.execute("DELETE FROM rooms WHERE 1");
             connectDB.close();
         } catch (SQLException e) {

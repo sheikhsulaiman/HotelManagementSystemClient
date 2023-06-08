@@ -30,6 +30,10 @@ public class PdfExport {
     public static void printInvoice(int invoiceNo,int bookingId,int roomNo,int userId,String checkInDate,String checkOutDate,String payType,String payStatus,String roomService,String poolAccess,String carParking){
 
         ArrayList<String> list = DButils.getBookingDetails(bookingId);
+        for (String date:list
+             ) {
+            System.out.print(" "+list);
+        }
 
         try {
             FileChooser fileChooser = new FileChooser();
@@ -96,7 +100,7 @@ public class PdfExport {
         listBookingTable.addCell(new Cell().add("Check In"));
         listBookingTable.addCell(new Cell().add(list.get(2)));
         listBookingTable.addCell(new Cell().add("Room Type."));
-        listBookingTable.addCell(new Cell().add(DButils.getRoomType(list.get(0))));
+        listBookingTable.addCell(new Cell().add(DButils.getRoomType(String.valueOf(roomNo))));
         listBookingTable.addCell(new Cell().add("Check Out"));
         listBookingTable.addCell(new Cell().add(list.get(3)));
         listBookingTable.addCell(new Cell().add("Room Service"));

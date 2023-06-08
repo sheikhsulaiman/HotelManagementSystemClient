@@ -3,6 +3,7 @@ package com.hotel.hotelclient.controllers;
 import com.hotel.hotelclient.communication.Request;
 import com.hotel.hotelclient.communication.Media;
 import com.hotel.hotelclient.database.DButils;
+import com.hotel.hotelclient.utils.FetchData;
 import com.hotel.hotelclient.utils.Log;
 import com.hotel.hotelclient.utils.SceneSwitcher;
 import javafx.beans.value.ChangeListener;
@@ -43,6 +44,22 @@ public class LogInController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+
+        DButils.clearAllRooms();
+        Media rooms = new Media(Request.fetchRooms());
+        String rawRoomsData = rooms.getReceivedData();
+        if(!(rawRoomsData.isEmpty()||rawRoomsData.isBlank())) {
+            String[] listRoom = rawRoomsData.split(":");
+            //System.out.println(Arrays.toString(listRoom));
+            for (String data : listRoom) {
+                //System.out.println(Arrays.toString(data.split("~)));
+                DButils.updateRoomsTable(data.split("~"));
+
+            }
+        }
+
+        FetchData.fetchAllDataFromServer();
 
         tf_serverip.textProperty().addListener(new ChangeListener<String>() {
             @Override
