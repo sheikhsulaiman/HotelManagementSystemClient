@@ -71,6 +71,24 @@ public class BookingController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         btn_back.setOnAction(event -> SceneSwitcher.changeScene(event,"../dashboard.fxml","Dashboard"));
 
+        cb_roomType.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    cb_roomNo.getItems().clear();
+                    ArrayList<String> availableRooms = new ArrayList<>(9);
+                    availableRooms = (DButils.getRooms(cb_roomType.getValue()));
+                    availableRooms.removeAll(DButils.getBookedRooms(dp_checkIn, dp_checkOut));
+
+                    cb_roomNo.getItems().addAll(availableRooms);
+                }catch (NullPointerException e){
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setContentText("Please pick a date");
+                    alert.show();
+                }
+            }
+        });
+
         cb_payType.getItems().addAll("Cash","Online");
         tf_user_id.setText(Integer.toString(Log.getUserId()));
         cb_payStatus.setValue("Unpaid");
@@ -104,6 +122,7 @@ public class BookingController implements Initializable {
                 try {
                     Media newBooking = new Media(Request.newBooking(cb_roomNo.getValue(), tf_user_id.getText(), dp_checkIn.getValue().toString(), dp_checkOut.getValue().toString(), cb_payType.getValue() == null ? "Cash" : cb_payType.getValue(), ckb_roomService.isSelected() ? "YES" : "NO", ckb_poolAccess.isSelected() ? "YES" : "NO", ckb_carParking.isSelected() ? "YES" : "NO"));
                     Media bookings = new Media(Request.getBookingDetailsForClient());
+                    System.out.println(bookings.getReceivedData());
                     String rawBookingData = (bookings.getReceivedData());
                     if(!(rawBookingData.isBlank()||rawBookingData.isEmpty())) {
                         String[] listBooking = rawBookingData.split(":");
@@ -115,13 +134,15 @@ public class BookingController implements Initializable {
                         }
                     }
                     int bookingId = DButils.getLastBookingId();
-                    Media createInvoice = new Media(Request.createNewInvoice(Integer.toString(bookingId), String.valueOf(PriceChart.calculatePrice(cb_roomNo.getValue(), dp_checkIn.getValue(), dp_checkOut.getValue(), ckb_roomService.isSelected() ? "YES" : "NO", ckb_carParking.isSelected() ? "YES" : "NO", ckb_poolAccess.isSelected() ? "YES" : "NO")),"Unpaid"));
+                    //String roomNo = (cb_roomNo.getValue());
+                    Media createInvoice = new Media(Request.createNewInvoice(Integer.toString(bookingId), String.valueOf(PriceChart.calculatePrice(DButils.getRoomType(cb_roomNo.getValue()), dp_checkIn.getValue(), dp_checkOut.getValue(), ckb_roomService.isSelected() ? "YES" : "NO", ckb_carParking.isSelected() ? "YES" : "NO", ckb_poolAccess.isSelected() ? "YES" : "NO")),"Unpaid"));
                     Media getInvoiceId = new Media(Request.fetchInvoiceId(String.valueOf(bookingId)));
                     String invoiceId = getInvoiceId.getReceivedData();
                     if(rBtn_print.isSelected()){
                         PdfExport.printInvoice(Integer.parseInt(invoiceId),bookingId,Integer.parseInt(cb_roomNo.getValue()), Integer.parseInt(tf_user_id.getText()), dp_checkIn.getValue().toString(), dp_checkOut.getValue().toString(), cb_payType.getValue()==null?"Cash":cb_payType.getValue(), cb_payStatus.getValue()==null?"Unpaid":cb_payStatus.getValue(), ckb_roomService.isSelected() ? "YES" : "NO", ckb_poolAccess.isSelected() ? "YES" : "NO", ckb_carParking.isSelected() ? "YES" : "NO");
                     }
                 }catch (NullPointerException e){
+                    e.printStackTrace();
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setContentText("Please fill up all the fields");
                     alert.show();
@@ -134,26 +155,8 @@ public class BookingController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    l_predictedPrice.setText("$ " + Integer.toString(PriceChart.calculatePrice(cb_roomNo.getValue(), dp_checkIn.getValue(), dp_checkOut.getValue(), ckb_roomService.isSelected() ? "YES" : "NO", ckb_carParking.isSelected() ? "YES" : "NO", ckb_poolAccess.isSelected() ? "YES" : "NO")));
+                    l_predictedPrice.setText("$ " + Integer.toString(PriceChart.calculatePrice(DButils.getRoomType(cb_roomNo.getValue()), dp_checkIn.getValue(), dp_checkOut.getValue(), ckb_roomService.isSelected() ? "YES" : "NO", ckb_carParking.isSelected() ? "YES" : "NO", ckb_poolAccess.isSelected() ? "YES" : "NO")));
                 }catch (NumberFormatException e){}
-            }
-        });
-
-        cb_roomType.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                try {
-                    cb_roomNo.getItems().clear();
-                    ArrayList<String> availableRooms = new ArrayList<>(9);
-                    availableRooms = (DButils.getRooms(cb_roomType.getValue()));
-                    availableRooms.removeAll(DButils.getBookedRooms(dp_checkIn, dp_checkOut));
-
-                    cb_roomNo.getItems().addAll(availableRooms);
-                }catch (NullPointerException e){
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setContentText("Please pick a date");
-                    alert.show();
-                }
             }
         });
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
@@ -9,12 +10,78 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
 <AnchorPane prefHeight="711" prefWidth="1010" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hotel.hotelclient.controllers.ProfileController">
 
     <children>
+      <HBox alignment="CENTER" layoutX="405.0" layoutY="306.0" prefHeight="100.0" prefWidth="200.0" spacing="90.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox alignment="CENTER" spacing="20.0">
+               <children>
+                  <TextField fx:id="tf_firstname" prefHeight="39.0" prefWidth="338.0" promptText="first name">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="tf_lastname" prefHeight="39.0" prefWidth="338.0" promptText="last name">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+                  <Label text="Change Password" textFill="#00bca1">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="40.0" />
+                     </VBox.margin>
+                  </Label>
+                  <PasswordField fx:id="pf_password_old" prefHeight="39.0" prefWidth="338.0" promptText="Old Password">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </PasswordField>
+                  <PasswordField fx:id="pf_password_new" prefHeight="39.0" prefWidth="338.0" promptText="New Password">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </PasswordField>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" spacing="20.0">
+               <children>
+                  <HBox alignment="CENTER" spacing="12.0">
+                     <children>
+                        <Label text="Gender" textFill="#00bca1">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Label>
+                        <ChoiceBox fx:id="cb_gender" prefHeight="33.0" prefWidth="255.0" />
+                     </children>
+                  </HBox>
+                  <TextField fx:id="tf_phone" prefHeight="39.0" prefWidth="338.0" promptText="phone">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="tf_email" prefHeight="39.0" prefWidth="338.0" promptText="email">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+                  <TextArea fx:id="ta_address" prefHeight="158.0" prefWidth="338.0" promptText="address">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextArea>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
         <Button fx:id="btn_back" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
             <cursor>
                 <Cursor fx:constant="HAND" />
@@ -22,43 +89,6 @@
          <graphic>
             <FontIcon iconColor="#00bca1" iconLiteral="fltfal-arrow-left-28" iconSize="30" />
          </graphic>
-        </Button>
-        <TextField fx:id="tf_firstname" layoutX="125.0" layoutY="188.0" prefHeight="39.0" prefWidth="338.0" promptText="first name" AnchorPane.leftAnchor="125.0">
-            <font>
-                <Font size="18.0" />
-            </font></TextField>
-        <TextField fx:id="tf_lastname" layoutX="125.0" layoutY="247.0" prefHeight="39.0" prefWidth="338.0" promptText="last name" AnchorPane.leftAnchor="125.0">
-            <font>
-                <Font size="18.0" />
-            </font></TextField>
-        <Label layoutX="547.0" layoutY="192.0" text="Gender" textFill="#00bca1" AnchorPane.rightAnchor="395.0">
-            <font>
-                <Font size="21.0" />
-            </font>
-        </Label>
-        <ChoiceBox fx:id="cb_gender" layoutX="630.0" layoutY="191.0" prefHeight="33.0" prefWidth="255.0" AnchorPane.rightAnchor="125.0" />
-        <TextField fx:id="tf_phone" layoutX="547.0" layoutY="247.0" prefHeight="39.0" prefWidth="338.0" promptText="phone" AnchorPane.rightAnchor="125.0">
-            <font>
-                <Font size="18.0" />
-            </font></TextField>
-        <TextField fx:id="tf_email" layoutX="547.0" layoutY="307.0" prefHeight="39.0" prefWidth="338.0" promptText="email" AnchorPane.rightAnchor="125.0">
-            <font>
-                <Font size="18.0" />
-            </font></TextField>
-        <TextArea fx:id="ta_address" layoutX="547.0" layoutY="365.0" prefHeight="158.0" prefWidth="338.0" promptText="address" AnchorPane.bottomAnchor="188.0" AnchorPane.leftAnchor="547.0" AnchorPane.rightAnchor="125.0">
-            <font>
-                <Font size="18.0" />
-            </font></TextArea>
-        <Button fx:id="btn_update" layoutX="239.0" layoutY="580.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="224.0" style="-fx-background-color: #00BCA1;" text="Update" textFill="WHITE" AnchorPane.bottomAnchor="92.0" AnchorPane.leftAnchor="239.0" AnchorPane.rightAnchor="547.0">
-            <font>
-                <Font name="Calibri Bold" size="20.0" />
-            </font>
-            <graphic>
-                <FontIcon iconColor="WHITE" iconLiteral="fltral-checkmark-circle-20" iconSize="24" />
-            </graphic>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
         </Button>
         <HBox alignment="CENTER" layoutY="552.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
             <children>
@@ -74,32 +104,32 @@
                 </FontIcon>
             </children>
         </HBox>
-        <PasswordField fx:id="pf_password_old" layoutX="125.0" layoutY="420.0" prefHeight="39.0" prefWidth="338.0" promptText="Old Password">
-            <font>
-                <Font size="18.0" />
-            </font>
-        </PasswordField>
-      <PasswordField fx:id="pf_password_new" layoutX="125.0" layoutY="481.0" prefHeight="39.0" prefWidth="338.0" promptText="New Password">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </PasswordField>
-      <Label layoutX="125.0" layoutY="382.0" text="Change Password" textFill="#00bca1">
-         <font>
-            <Font size="21.0" />
-         </font>
-      </Label>
-      <Button fx:id="btn_logout" layoutX="547.0" layoutY="580.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="224.0" style="-fx-background-color: #00BCA1;" text="Log Out" textFill="WHITE">
-         <font>
-            <Font name="Calibri Bold" size="20.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-         <graphic>
-            <FontIcon iconColor="WHITE" iconLiteral="fltfal-key-multiple-20" />
-         </graphic>
-      </Button>
+      <HBox alignment="CENTER" layoutX="423.0" layoutY="569.0" prefWidth="200.0" spacing="90.0" AnchorPane.bottomAnchor="90.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+              <Button fx:id="btn_update" mnemonicParsing="false" prefHeight="39.0" prefWidth="224.0" style="-fx-background-color: #00BCA1;" text="Update" textFill="WHITE">
+                  <font>
+                      <Font name="Calibri Bold" size="20.0" />
+                  </font>
+                  <graphic>
+                      <FontIcon iconColor="WHITE" iconLiteral="fltral-checkmark-circle-20" iconSize="24" />
+                  </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+              </Button>
+            <Button fx:id="btn_logout" mnemonicParsing="false" prefHeight="39.0" prefWidth="224.0" style="-fx-background-color: #00BCA1;" text="Log Out" textFill="WHITE">
+               <font>
+                  <Font name="Calibri Bold" size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <FontIcon iconColor="WHITE" iconLiteral="fltfal-key-multiple-20" />
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
     </children>
 
 </AnchorPane>

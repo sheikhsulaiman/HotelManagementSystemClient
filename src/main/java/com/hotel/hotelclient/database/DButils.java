@@ -131,7 +131,7 @@ public class DButils {
         DataBaseConnection dbConnection = new DataBaseConnection();
         Connection connectDB = dbConnection.getDatabaseLink();
 
-        String roomType="";
+        String roomType=null;
 
         try{
             PreparedStatement getRoomTypeStm = connectDB.prepareStatement( "SELECT type FROM rooms WHERE number=?");

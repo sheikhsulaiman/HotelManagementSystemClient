@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -13,58 +14,65 @@
 
 <AnchorPane prefHeight="711.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hotel.hotelclient.controllers.LogInController">
    <children>
-      <HBox alignment="CENTER" layoutY="481.0" prefHeight="35.0" prefWidth="315.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <VBox alignment="CENTER" layoutX="253.0" layoutY="52.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" text="Do not have account" />
-            <Button fx:id="btn_signUp" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Sign Up" textFill="#0071f2" underline="true">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-         </children>
-      </HBox>
-      <HBox alignment="CENTER" layoutY="196.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-         <children>
-            <FontIcon fill="#00bca1" iconLiteral="fltfmz-person-24" iconSize="60" />
-         </children>
-      </HBox>
-      <HBox alignment="CENTER" layoutY="289.0" prefHeight="67.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-         <children>
-            <VBox alignment="CENTER_LEFT" spacing="2.0">
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label text="User Id">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="tf_userId">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </TextField>
-                  <Label text="Password">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Label>
-                  <PasswordField fx:id="tf_password">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </PasswordField>
+                  <FontIcon fill="#00bca1" iconLiteral="fltfmz-person-24" iconSize="60" />
                </children>
-            </VBox>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="67.0" prefWidth="200.0">
+               <children>
+                  <VBox alignment="CENTER_LEFT" spacing="2.0">
+                     <children>
+                        <Label text="User Id">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="tf_userId">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </TextField>
+                        <Label text="Password">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <PasswordField fx:id="tf_password">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </PasswordField>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefWidth="200.0">
+               <children>
+                  <Button fx:id="btn_logIn" mnemonicParsing="false" prefHeight="25.0" prefWidth="198.0" style="-fx-background-color: #00BCA1;" text="Log In" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri Bold" size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="35.0" prefWidth="315.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="Do not have account" />
+                  <Button fx:id="btn_signUp" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Sign Up" textFill="#0071f2" underline="true">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </HBox>
          </children>
-      </HBox>
-      <HBox alignment="CENTER" layoutY="448.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-         <children>
-            <Button fx:id="btn_logIn" mnemonicParsing="false" prefHeight="25.0" prefWidth="198.0" style="-fx-background-color: #00BCA1;" text="Log In" textFill="WHITE">
-               <font>
-                  <Font name="Calibri Bold" size="16.0" />
-               </font>
-            </Button>
-         </children>
-      </HBox>
+      </VBox>
       <Label fx:id="l_errorMessage" alignment="CENTER" contentDisplay="CENTER" layoutY="424.0" textFill="#ff0f0f" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
       <Button fx:id="btn_back" layoutX="24.0" layoutY="24.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
          <graphic>
@@ -74,7 +82,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <TextField fx:id="tf_serverip" alignment="CENTER" layoutX="865.0" layoutY="31.0" prefHeight="25.0" prefWidth="110.0" />
-      <Label layoutX="812.0" layoutY="35.0" text="Server IP:" textFill="#00bca1" />
+      <TextField fx:id="tf_serverip" alignment="CENTER" layoutX="865.0" layoutY="31.0" prefHeight="25.0" prefWidth="110.0" AnchorPane.rightAnchor="35.0" />
+      <Label layoutX="812.0" layoutY="35.0" text="Server IP:" textFill="#00bca1" AnchorPane.rightAnchor="149.0" />
    </children>
 </AnchorPane>

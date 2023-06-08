@@ -16,46 +16,6 @@
 
 <AnchorPane prefHeight="711.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hotel.hotelclient.controllers.BookingController">
    <children>
-      <Label layoutX="124.0" layoutY="328.0" text="Room Type">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Label>
-      <Label layoutX="123.0" layoutY="158.0" text="User Id">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Label>
-      <TextField fx:id="tf_user_id" disable="true" layoutX="311.0" layoutY="157.0" prefHeight="39.0" prefWidth="201.0">
-         <font>
-            <Font size="18.0" />
-         </font></TextField>
-      <DatePicker fx:id="dp_checkIn" layoutX="311.0" layoutY="214.0" prefHeight="39.0" prefWidth="201.0" />
-      <DatePicker fx:id="dp_checkOut" layoutX="311.0" layoutY="272.0" prefHeight="39.0" prefWidth="201.0" />
-      <ChoiceBox fx:id="cb_roomType" layoutX="311.0" layoutY="328.0" prefHeight="36.0" prefWidth="201.0" />
-      <ChoiceBox fx:id="cb_roomNo" layoutX="311.0" layoutY="383.0" prefHeight="39.0" prefWidth="201.0" />
-      <ChoiceBox fx:id="cb_payType" layoutX="311.0" layoutY="441.0" prefHeight="39.0" prefWidth="201.0" />
-      <ChoiceBox fx:id="cb_payStatus" disable="true" layoutX="311.0" layoutY="503.0" prefHeight="39.0" prefWidth="201.0" />
-      <Label layoutX="124.0" layoutY="385.0" text="Room No.">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Label>
-      <Label layoutX="123.0" layoutY="216.0" text="Check-in">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Label>
-      <Label layoutX="124.0" layoutY="273.0" text="Check-out">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Label>
-      <Label layoutX="124.0" layoutY="442.0" text="Payment Type">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Label>
       <Line endX="152.0" layoutX="752.0" layoutY="219.0" startX="-100.0" />
       <Label layoutX="680.0" layoutY="220.0" text="Additional Facilities">
          <font>
@@ -77,11 +37,6 @@
             <Font size="24.0" />
          </font>
       </CheckBox>
-      <Label layoutX="124.0" layoutY="504.0" text="Payment Status">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Label>
       <Button fx:id="btn_predictPrice" layoutX="642.0" layoutY="442.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="164.0" style="-fx-background-color: #5f9ea0;" text="Predict Price" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -131,5 +86,79 @@
             </Label>
          </children>
       </HBox>
+      <AnchorPane layoutX="123.0" layoutY="163.0" prefHeight="39.0" prefWidth="393.0">
+         <children>
+            <Label layoutX="8.0" layoutY="-5.0" text="User Id" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tf_user_id" disable="true" layoutX="45.0" layoutY="-5.0" prefHeight="39.0" prefWidth="201.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="123.0" layoutY="214.0" prefHeight="39.0" prefWidth="393.0">
+         <children>
+            <DatePicker fx:id="dp_checkIn" layoutX="27.0" layoutY="2.0" prefHeight="39.0" prefWidth="201.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <Label layoutY="2.0" text="Check-in" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="2.0">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="123.0" layoutY="265.0" prefHeight="39.0" prefWidth="393.0">
+         <children>
+            <DatePicker fx:id="dp_checkOut" layoutX="61.0" layoutY="5.0" prefHeight="39.0" prefWidth="201.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <Label layoutY="2.0" text="Check-out" AnchorPane.leftAnchor="0.0">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="123.0" layoutY="327.0" prefHeight="39.0" prefWidth="393.0">
+         <children>
+            <Label layoutY="2.0" text="Room Type" AnchorPane.leftAnchor="0.0">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="cb_roomType" layoutX="85.0" layoutY="8.0" prefHeight="36.0" prefWidth="201.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="123.0" layoutY="382.0" prefHeight="39.0" prefWidth="393.0">
+         <children>
+            <Label layoutX="85.0" layoutY="2.0" text="Room No." AnchorPane.leftAnchor="0.0">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="cb_roomNo" layoutX="60.0" layoutY="6.0" prefHeight="39.0" prefWidth="201.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="123.0" layoutY="434.0" prefHeight="39.0" prefWidth="393.0">
+         <children>
+            <Label layoutY="2.0" text="Payment Type" AnchorPane.leftAnchor="0.0">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="cb_payType" layoutX="72.0" prefHeight="39.0" prefWidth="201.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="123.0" layoutY="489.0" prefHeight="39.0" prefWidth="393.0">
+         <children>
+            <Label layoutY="2.0" text="Payment Status" AnchorPane.leftAnchor="0.0">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="cb_payStatus" disable="true" layoutX="100.0" layoutY="12.0" prefHeight="39.0" prefWidth="201.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

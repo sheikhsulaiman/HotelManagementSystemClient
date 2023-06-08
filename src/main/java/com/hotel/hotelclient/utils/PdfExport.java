@@ -14,6 +14,7 @@ import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.property.TextAlignment;
 import com.itextpdf.layout.property.VerticalAlignment;
+import javafx.scene.control.Alert;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -38,14 +39,12 @@ public class PdfExport {
             PdfWriter pdfWriter = new PdfWriter(new FileOutputStream(fileChooser.showSaveDialog(new Stage())));
 
 
-        String path = "D:/Project/Receipt/Invoice.pdf";
-
-        PdfDocument pdfDocument = new PdfDocument(pdfWriter);
+            PdfDocument pdfDocument = new PdfDocument(pdfWriter);
         Document document = new Document(pdfDocument);
         pdfDocument.setDefaultPageSize(PageSize.A4);
 
         float col = 280f;
-        float columnWidth[] = {col,col};
+        float[] columnWidth = {col,col};
 
         Table table = new Table(columnWidth);
 
@@ -75,7 +74,7 @@ public class PdfExport {
         customerInformationTable.addCell(new Cell().add("Name"));
         customerInformationTable.addCell(new Cell().add(Log.getFirstname()+" "+Log.getLastname()));
         customerInformationTable.addCell(new Cell().add("ID").setTextAlignment(TextAlignment.CENTER));
-        customerInformationTable.addCell(new Cell().add(Integer.toString(userId)).setTextAlignment(TextAlignment.CENTER));
+        customerInformationTable.addCell(new Cell().add(list.get(1)).setTextAlignment(TextAlignment.CENTER));
 
 
         Table bookingInformationTable = new Table(colWidth);
@@ -86,31 +85,31 @@ public class PdfExport {
                         .setMarginBottom(5f)
                 ).setMarginTop(50f);
         bookingInformationTable.addCell(new Cell().add("Booking No.").setBorder(Border.NO_BORDER).setTextAlignment(TextAlignment.RIGHT).setMarginRight(5f));
-        bookingInformationTable.addCell(new Cell().add(Integer.toString(bookingId)).setBorder(Border.NO_BORDER).setTextAlignment(TextAlignment.CENTER).setFontColor(new DeviceRgb(0,128,0)));
+        bookingInformationTable.addCell(new Cell().add(list.get(9)).setBorder(Border.NO_BORDER).setTextAlignment(TextAlignment.CENTER).setFontColor(new DeviceRgb(0,128,0)));
 
         float detailcolwidth[] = {120f,160f,200f,80f};
         Table listBookingTable = new Table(detailcolwidth);
 
         listBookingTable.setMarginTop(20f);
         listBookingTable.addCell(new Cell().add("Room No."));
-        listBookingTable.addCell(new Cell().add(Integer.toString(roomNo)));
+        listBookingTable.addCell(new Cell().add((list.get(0))));
         listBookingTable.addCell(new Cell().add("Check In"));
-        listBookingTable.addCell(new Cell().add(checkInDate));
+        listBookingTable.addCell(new Cell().add(list.get(2)));
         listBookingTable.addCell(new Cell().add("Room Type."));
         listBookingTable.addCell(new Cell().add(DButils.getRoomType(list.get(0))));
         listBookingTable.addCell(new Cell().add("Check Out"));
-        listBookingTable.addCell(new Cell().add(checkOutDate));
+        listBookingTable.addCell(new Cell().add(list.get(3)));
         listBookingTable.addCell(new Cell().add("Room Service"));
-        listBookingTable.addCell(new Cell().add(roomService));
+        listBookingTable.addCell(new Cell().add(list.get(6)));
         listBookingTable.addCell(new Cell(2,0).add("Payment Status").setVerticalAlignment(VerticalAlignment.MIDDLE));
         listBookingTable.addCell(new Cell(2,0).add(list.get(5)).setVerticalAlignment(VerticalAlignment.MIDDLE));
         listBookingTable.addCell(new Cell().add("Pool Access"));
-        listBookingTable.addCell(new Cell().add(poolAccess));
+        listBookingTable.addCell(new Cell().add(list.get(7)));
         listBookingTable.addCell(new Cell().add("Car Parking"));
-        listBookingTable.addCell(new Cell().add(carParking));
+        listBookingTable.addCell(new Cell().add(list.get(8)));
         listBookingTable.addCell(new Cell().add("Total"));
             //PriceChart.calculatePrice(list.get(0), LocalDate.parse( list.get(2)),LocalDate.parse( list.get(3)), list.get(6), list.get(7), list.get(8));
-        listBookingTable.addCell(new Cell().add("$ "+PriceChart.calculatePrice(Integer.toString(roomNo),LocalDate.parse( checkInDate),LocalDate.parse( checkOutDate), roomService, carParking, poolAccess)));
+        listBookingTable.addCell(new Cell().add("$ "+PriceChart.calculatePrice(DButils.getRoomType(list.get(0)),LocalDate.parse(list.get(2)),LocalDate.parse( list.get(3)), list.get(6), list.get(7), list.get(8))));
 
 
         Paragraph date = new Paragraph();
@@ -130,7 +129,9 @@ public class PdfExport {
         document.close();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("You must select a directory to save the invoice.");
+            alert.show();
         }
     }
 }
