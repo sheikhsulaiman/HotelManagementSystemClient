@@ -134,8 +134,11 @@ public class BookingController implements Initializable {
                         }
                     }
                     int bookingId = DButils.getLastBookingId();
+                    Log.setRoomNumber(Integer.parseInt(cb_roomNo.getValue()));
+                    Log.setRoomType(DButils.getRoomType(Integer.toString(Log.getRoomNumber())));
+                    System.out.println(DButils.getRoomType(Integer.toString(Log.getRoomNumber())));
                     //String roomNo = (cb_roomNo.getValue());
-                    Media createInvoice = new Media(Request.createNewInvoice(Integer.toString(bookingId), String.valueOf(PriceChart.calculatePrice(DButils.getRoomType(cb_roomNo.getValue()), dp_checkIn.getValue(), dp_checkOut.getValue(), ckb_roomService.isSelected() ? "YES" : "NO", ckb_carParking.isSelected() ? "YES" : "NO", ckb_poolAccess.isSelected() ? "YES" : "NO")),"Unpaid"));
+                    Media createInvoice = new Media(Request.createNewInvoice(Integer.toString(bookingId), String.valueOf(PriceChart.calculatePrice(Log.getRoomType(), dp_checkIn.getValue(), dp_checkOut.getValue(), ckb_roomService.isSelected() ? "YES" : "NO", ckb_carParking.isSelected() ? "YES" : "NO", ckb_poolAccess.isSelected() ? "YES" : "NO")),"Unpaid"));
                     Media getInvoiceId = new Media(Request.fetchInvoiceId(String.valueOf(bookingId)));
                     String invoiceId = getInvoiceId.getReceivedData();
                     if(rBtn_print.isSelected()){
@@ -155,7 +158,7 @@ public class BookingController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    l_predictedPrice.setText("$ " + Integer.toString(PriceChart.calculatePrice(DButils.getRoomType(cb_roomNo.getValue()), dp_checkIn.getValue(), dp_checkOut.getValue(), ckb_roomService.isSelected() ? "YES" : "NO", ckb_carParking.isSelected() ? "YES" : "NO", ckb_poolAccess.isSelected() ? "YES" : "NO")));
+                    l_predictedPrice.setText("$ " + Integer.toString(PriceChart.calculatePrice(Log.getRoomType(), dp_checkIn.getValue(), dp_checkOut.getValue(), ckb_roomService.isSelected() ? "YES" : "NO", ckb_carParking.isSelected() ? "YES" : "NO", ckb_poolAccess.isSelected() ? "YES" : "NO")));
                 }catch (NumberFormatException e){}
             }
         });

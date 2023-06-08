@@ -15,14 +15,8 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/controllers/ModifyBookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/controllers/ModifyBookingController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/database/DButils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/database/DButils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/database/hotel.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/database/hotel.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/utils/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/utils/Log.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/utils/PdfExport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/utils/PdfExport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/utils/pricechart/PriceChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hotel/hotelclient/utils/pricechart/PriceChart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/hotel/hotelclient/booking.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/hotel/hotelclient/booking.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/hotel/hotelclient/dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/hotel/hotelclient/dashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/hotel/hotelclient/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/hotel/hotelclient/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/hotel/hotelclient/modifyBooking.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/hotel/hotelclient/modifyBooking.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/hotel/hotelclient/profile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/hotel/hotelclient/profile.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/hotel/hotelclient/signup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/hotel/hotelclient/signup.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +32,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="a1ba4ac8cd88f693aeb69a61b72f9e38dfe62579" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
@@ -194,6 +193,7 @@
       <workItem from="1686141697394" duration="3040000" />
       <workItem from="1686178591834" duration="3665000" />
       <workItem from="1686191830556" duration="7212000" />
+      <workItem from="1686203499096" duration="1020000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1685754843032</created>

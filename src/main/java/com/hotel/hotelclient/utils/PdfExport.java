@@ -109,7 +109,7 @@ public class PdfExport {
         listBookingTable.addCell(new Cell().add(list.get(8)));
         listBookingTable.addCell(new Cell().add("Total"));
             //PriceChart.calculatePrice(list.get(0), LocalDate.parse( list.get(2)),LocalDate.parse( list.get(3)), list.get(6), list.get(7), list.get(8));
-        listBookingTable.addCell(new Cell().add("$ "+PriceChart.calculatePrice(DButils.getRoomType(list.get(0)),LocalDate.parse(list.get(2)),LocalDate.parse( list.get(3)), list.get(6), list.get(7), list.get(8))));
+        listBookingTable.addCell(new Cell().add("$ "+PriceChart.calculatePrice(Log.getRoomType(),LocalDate.parse(list.get(2)),LocalDate.parse( list.get(3)), list.get(6), list.get(7), list.get(8))));
 
 
         Paragraph date = new Paragraph();
