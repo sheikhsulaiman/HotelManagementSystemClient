@@ -6,9 +6,10 @@ import java.time.LocalDate;
 import java.time.Period;
 
 public class PriceChart {
+    public static String roomType=null;
 
 
-    public static int calculatePrice(String roomType,LocalDate checkIn,LocalDate checkOut,String roomService,String carParking,String poolAccess){
+    public static int calculatePrice(String roomNo,LocalDate checkIn,LocalDate checkOut,String roomService,String carParking,String poolAccess){
         int singleBed = 25;
         int doubleBed = 40;
         int multiBed = 59;
@@ -17,10 +18,7 @@ public class PriceChart {
         int carParkingPrice = 4;
         int poolAccessPrice = 7;
 
-        //System.out.println(roomNo);
-
-        //String roomType = DButils.getRoomType(roomNo);
-        System.out.println(roomType);
+        roomType = DButils.getRoomType(roomNo);
 
         Integer sum = 0;
         int totaldays = Period.between(checkOut,checkIn).getDays();
