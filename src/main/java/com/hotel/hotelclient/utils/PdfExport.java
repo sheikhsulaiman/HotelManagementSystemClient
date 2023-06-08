@@ -97,7 +97,7 @@ public class PdfExport {
         listBookingTable.addCell(new Cell().add("Check In"));
         listBookingTable.addCell(new Cell().add(checkInDate));
         listBookingTable.addCell(new Cell().add("Room Type."));
-        listBookingTable.addCell(new Cell().add(DButils.getRoomType(list.get(0))));
+        listBookingTable.addCell(new Cell().add(DButils.getRoomType(String.valueOf(roomNo))));
         listBookingTable.addCell(new Cell().add("Check Out"));
         listBookingTable.addCell(new Cell().add(checkOutDate));
         listBookingTable.addCell(new Cell().add("Room Service"));

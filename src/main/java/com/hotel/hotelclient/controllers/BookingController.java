@@ -69,11 +69,13 @@ public class BookingController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        btn_back.setOnAction(event -> SceneSwitcher.changeScene(event,"../dashboard.fxml","Dashboard"));
 
         cb_payType.getItems().addAll("Cash","Online");
-        tf_user_id.setText(Integer.toString(Log.getUserId()));
         cb_payStatus.setValue("Unpaid");
+        tf_user_id.setText(Integer.toString(Log.getUserId()));
+
+        btn_back.setOnAction(event -> SceneSwitcher.changeScene(event,"../dashboard.fxml","Dashboard"));
+
 
         dp_checkIn.setDayCellFactory(picker -> new DateCell() {
             public void updateItem(LocalDate date, boolean empty) {
@@ -98,6 +100,24 @@ public class BookingController implements Initializable {
         cb_roomType.getItems().add("any");
         cb_roomType.getItems().addAll(DButils.getRoomType());
 
+        cb_roomType.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    cb_roomNo.getItems().clear();
+                    ArrayList<String> availableRooms = new ArrayList<>(9);
+                    availableRooms = (DButils.getRooms(cb_roomType.getValue()));
+                    availableRooms.removeAll(DButils.getBookedRooms(dp_checkIn, dp_checkOut));
+
+                    cb_roomNo.getItems().addAll(availableRooms);
+                }catch (NullPointerException e){
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setContentText("Please pick a date");
+                    alert.show();
+                }
+            }
+        });
+
         btn_confirmBooking.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -115,7 +135,7 @@ public class BookingController implements Initializable {
                         }
                     }
                     int bookingId = DButils.getLastBookingId();
-                    Media createInvoice = new Media(Request.createNewInvoice(Integer.toString(bookingId), String.valueOf(PriceChart.calculatePrice(cb_roomNo.getValue(), dp_checkIn.getValue(), dp_checkOut.getValue(), ckb_roomService.isSelected() ? "YES" : "NO", ckb_carParking.isSelected() ? "YES" : "NO", ckb_poolAccess.isSelected() ? "YES" : "NO")),"Unpaid"));
+                    Media createInvoice = new Media(Request.createNewInvoice(Integer.toString(bookingId), Integer.toString(PriceChart.calculatePrice(cb_roomNo.getValue(), dp_checkIn.getValue(), dp_checkOut.getValue(), ckb_roomService.isSelected() ? "YES" : "NO", ckb_carParking.isSelected() ? "YES" : "NO", ckb_poolAccess.isSelected() ? "YES" : "NO")),"Unpaid"));
                     Media getInvoiceId = new Media(Request.fetchInvoiceId(String.valueOf(bookingId)));
                     String invoiceId = getInvoiceId.getReceivedData();
                     if(rBtn_print.isSelected()){
@@ -136,24 +156,6 @@ public class BookingController implements Initializable {
                 try {
                     l_predictedPrice.setText("$ " + Integer.toString(PriceChart.calculatePrice(cb_roomNo.getValue(), dp_checkIn.getValue(), dp_checkOut.getValue(), ckb_roomService.isSelected() ? "YES" : "NO", ckb_carParking.isSelected() ? "YES" : "NO", ckb_poolAccess.isSelected() ? "YES" : "NO")));
                 }catch (NumberFormatException e){}
-            }
-        });
-
-        cb_roomType.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                try {
-                    cb_roomNo.getItems().clear();
-                    ArrayList<String> availableRooms = new ArrayList<>(9);
-                    availableRooms = (DButils.getRooms(cb_roomType.getValue()));
-                    availableRooms.removeAll(DButils.getBookedRooms(dp_checkIn, dp_checkOut));
-
-                    cb_roomNo.getItems().addAll(availableRooms);
-                }catch (NullPointerException e){
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setContentText("Please pick a date");
-                    alert.show();
-                }
             }
         });
 

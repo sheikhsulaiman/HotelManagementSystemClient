@@ -44,6 +44,20 @@ public class LogInController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+
+        DButils.clearAll();
+        Media rooms = new Media(Request.fetchRooms());
+        String rawRoomsData = rooms.getReceivedData();
+        if(!(rawRoomsData.isEmpty()||rawRoomsData.isBlank())) {
+            String[] listRoom = rawRoomsData.split(":");
+            //System.out.println(Arrays.toString(listRoom));
+            for (String data : listRoom) {
+                //System.out.println(Arrays.toString(data.split("~)));
+                DButils.updateRoomsTable(data.split("~"));
+
+            }
+        }
+
         tf_serverip.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable,

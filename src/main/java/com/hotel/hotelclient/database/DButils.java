@@ -77,7 +77,7 @@ public class DButils {
 
             clearBookingStatement.execute("DELETE FROM bookings WHERE 1");
             clearCalendarStatement.execute("DELETE FROM calendar WHERE 1");
-            clearRoomsStatement.execute("DELETE FROM rooms WHERE 1");
+            //clearRoomsStatement.execute("DELETE FROM rooms WHERE 1");
             connectDB.close();
         } catch (SQLException e) {
             e.printStackTrace();
