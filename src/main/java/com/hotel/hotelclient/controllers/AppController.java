@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -28,6 +29,9 @@ public class AppController implements Initializable {
     @FXML
     private Button btn_contact;
 
+    @FXML
+    private AnchorPane back_image;
+
 
     @FXML
     private Button btn_logIn;
@@ -36,6 +40,13 @@ public class AppController implements Initializable {
     private Button btn_signup;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        back_image.getStyleClass().clear();
+        back_image.getStyleClass().add("background-pane");
+
+        btn_contact.setOnAction(event -> SceneSwitcher.changeScene(event,"../contact.fxml","Contact"));
+        btn_about.setOnAction(event -> SceneSwitcher.changeScene(event,"../about.fxml","About"));
+
         btn_logIn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {

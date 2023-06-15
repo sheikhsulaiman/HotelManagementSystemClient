@@ -46,20 +46,7 @@ public class LogInController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
 
-        DButils.clearAllRooms();
-        Media rooms = new Media(Request.fetchRooms());
-        String rawRoomsData = rooms.getReceivedData();
-        if(!(rawRoomsData.isEmpty()||rawRoomsData.isBlank())) {
-            String[] listRoom = rawRoomsData.split(":");
-            //System.out.println(Arrays.toString(listRoom));
-            for (String data : listRoom) {
-                //System.out.println(Arrays.toString(data.split("~)));
-                DButils.updateRoomsTable(data.split("~"));
 
-            }
-        }
-
-        FetchData.fetchAllDataFromServer();
 
         tf_serverip.textProperty().addListener(new ChangeListener<String>() {
             @Override
@@ -83,6 +70,24 @@ public class LogInController implements Initializable {
         btn_logIn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+
+                try {
+                    DButils.clearAllRooms();
+                    Media rooms = new Media(Request.fetchRooms());
+                    String rawRoomsData = rooms.getReceivedData();
+                    if (!(rawRoomsData.isEmpty() || rawRoomsData.isBlank())) {
+                        String[] listRoom = rawRoomsData.split(":");
+                        //System.out.println(Arrays.toString(listRoom));
+                        for (String data : listRoom) {
+                            //System.out.println(Arrays.toString(data.split("~)));
+                            DButils.updateRoomsTable(data.split("~"));
+
+                        }
+                    }
+
+                    FetchData.fetchAllDataFromServer();
+                }catch (NullPointerException ignored){}
+
                 try {
                     if(tf_userId.getText().trim().isEmpty()||tf_password.getText().trim().isEmpty()){
                         Alert alert = new Alert(Alert.AlertType.ERROR);

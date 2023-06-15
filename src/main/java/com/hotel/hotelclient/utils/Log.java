@@ -13,26 +13,6 @@ public class Log {
 
     private static String serverIp;
 
-    public static int getRoomNumber() {
-        return roomNumber;
-    }
-
-    private static String roomType;
-
-    public static String getRoomType() {
-        return roomType;
-    }
-
-    public static void setRoomType(String roomType) {
-        Log.roomType = roomType;
-    }
-
-    public static void setRoomNumber(int roomNumber) {
-        Log.roomNumber = roomNumber;
-    }
-
-    private static int roomNumber;
-
     public static String getServerIp() {
         return serverIp;
     }

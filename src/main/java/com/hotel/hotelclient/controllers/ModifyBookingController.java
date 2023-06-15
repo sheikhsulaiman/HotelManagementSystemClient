@@ -213,7 +213,7 @@ public class ModifyBookingController implements Initializable {
                 //PdfExport.printInvoice(DButils.getInvoiceId(Integer.parseInt(list.get(9))),Integer.parseInt(list.get(9)),Integer.parseInt(cb_roomNo.getValue()), Integer.parseInt(tf_user_id.getText()), dp_checkIn.getValue().toString(), dp_checkOut.getValue().toString(), cb_payType.getValue(), cb_payStatus.getValue(), ckb_roomService.isSelected() ? "YES" : "NO", ckb_poolAccess.isSelected() ? "YES" : "NO", ckb_carParking.isSelected() ? "YES" : "NO");
 
                 //Media createInvoice = new Media(Request.createNewInvoice((list.get(0)), String.valueOf(PriceChart.calculatePrice(cb_roomNo.getValue(), dp_checkIn.getValue(), dp_checkOut.getValue(), ckb_roomService.isSelected() ? "YES" : "NO", ckb_carParking.isSelected() ? "YES" : "NO", ckb_poolAccess.isSelected() ? "YES" : "NO")),"Unpaid"));
-                Media getInvoiceId = new Media(Request.fetchInvoiceId(list.get(0)));
+                Media getInvoiceId = new Media(Request.fetchInvoiceId(list.get(9)));
                 String invoiceId = getInvoiceId.getReceivedData();
                 PdfExport.printInvoice(Integer.parseInt(invoiceId), Integer.parseInt(list.get(9)),Integer.parseInt(cb_roomNo.getValue()), Integer.parseInt(tf_user_id.getText()), dp_checkIn.getValue().toString(), dp_checkOut.getValue().toString(), cb_payType.getValue()==null?"Cash":cb_payType.getValue(), cb_payStatus.getValue()==null?"Unpaid":cb_payStatus.getValue(), ckb_roomService.isSelected() ? "YES" : "NO", ckb_poolAccess.isSelected() ? "YES" : "NO", ckb_carParking.isSelected() ? "YES" : "NO");
             }

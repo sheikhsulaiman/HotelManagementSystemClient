@@ -164,6 +164,7 @@ public class DButils {
             }
             connectDB.close();
         } catch (SQLException e) {
+            e.printStackTrace();
             System.out.println("SQL Exception");
         }
         return roomType;
